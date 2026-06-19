@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/*
+  Byggeledelse Norge AS - designsystem
+  Industriell, minimalistisk identitet:
+  - Base: off-white (bone) + naer-svart grafitt
+  - Aksent: dempet kobber / varm gra (skiller oss fra konkurrentenes bla)
+  Tailwind v4: tokens defineres i @theme og brukes som utility-klasser
+  (bg-graphite-900, text-copper-700, font-sans, osv).
+*/
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Grafitt - kjolig naer-svart gra (base for tekst og morke flater) */
+  --color-graphite-50: #f4f5f6;
+  --color-graphite-100: #e7e9ec;
+  --color-graphite-200: #cdd1d6;
+  --color-graphite-300: #aab0b8;
+  --color-graphite-400: #828a94;
+  --color-graphite-500: #5d656f;
+  --color-graphite-600: #444b54;
+  --color-graphite-700: #2f343b;
+  --color-graphite-800: #1e2227;
+  --color-graphite-900: #14171b;
+  --color-graphite-950: #0c0e11;
+
+  /* Bone / mist - varm off-white og lys gra */
+  --color-bone: #f7f5f1;
+  --color-mist: #ecebe5;
+
+  /* Kobber - dempet, varm aksent */
+  --color-copper-50: #faf3ee;
+  --color-copper-100: #f3e1d4;
+  --color-copper-200: #e6c2a8;
+  --color-copper-300: #d5a078;
+  --color-copper-400: #c07f52;
+  --color-copper-500: #a8663c;
+  --color-copper-600: #8e5230;
+  --color-copper-700: #744027;
+  --color-copper-800: #5b3320;
+  --color-copper-900: #4a2b1c;
+
+  --color-background: var(--color-bone);
+  --color-foreground: var(--color-graphite-900);
+}
+
+:root {
+  --background: var(--color-bone);
+  --foreground: var(--color-graphite-900);
+}
+
+* {
+  border-color: var(--color-graphite-200);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tydelige, tilgjengelige fokus-tilstander (WCAG) */
+:focus-visible {
+  outline: 2px solid var(--color-copper-600);
+  outline-offset: 2px;
+}
+
+/* Subtil industriell rutenett-tekstur til mork hero-bakgrunn */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
