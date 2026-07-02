@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/content/site";
 import type { Service } from "@/content/services";
+import type { BlogPost } from "@/content/posts";
 
 /**
  * JSON-LD for virksomheten (ProfessionalService / LocalBusiness).
@@ -69,6 +70,35 @@ export function serviceJsonLd(service: Service) {
     audience: {
       "@type": "Audience",
       audienceType: service.audience === "privat" ? "Privatpersoner" : "Bedrifter",
+    },
+  };
+}
+
+/** JSON-LD for en fagartikkel (BlogPosting). */
+export function blogPostingJsonLd(post: BlogPost) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription,
+    image: `${site.url}${post.cover}`,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.legalName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${site.url}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${site.url}/fagbase/${post.slug}`,
     },
   };
 }

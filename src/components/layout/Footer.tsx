@@ -37,11 +37,28 @@ export function Footer() {
               alt={site.legalName}
               width={1600}
               height={798}
-              className="h-8 w-auto opacity-90 brightness-0 invert"
+              className="h-20 w-auto opacity-90 brightness-0 invert"
             />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-graphite-400">
               Uavhengig byggfaglig rådgiver for boligeiere og bedrifter – {site.serviceArea}.
             </p>
+            <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+              <li>
+                <Link href="/referanser" className="hover:text-bone">
+                  Referanser
+                </Link>
+              </li>
+              <li>
+                <Link href="/fagbase" className="hover:text-bone">
+                  Fagbase
+                </Link>
+              </li>
+              <li>
+                <Link href="/om-oss" className="hover:text-bone">
+                  Om oss
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <nav aria-label="Tjenester for private">
@@ -102,15 +119,15 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-6 border-t border-graphite-800 py-10 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-6">
             {site.certifications.map((cert) => (
               <Image
                 key={cert.label}
                 src={cert.image}
                 alt={cert.alt}
-                width={128}
-                height={128}
-                className="h-12 w-12 object-contain"
+                width={256}
+                height={256}
+                className="h-28 w-28 object-contain"
               />
             ))}
           </div>

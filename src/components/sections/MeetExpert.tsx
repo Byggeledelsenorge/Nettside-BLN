@@ -13,15 +13,15 @@ export function MeetExpert() {
   return (
     <section className="border-t border-graphite-200 bg-mist py-20 sm:py-28">
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.8fr)_1fr] lg:gap-16">
-          <div className="relative">
+        <div className="grid items-center gap-12 lg:grid-cols-[auto_1fr] lg:gap-16">
+          <div className="relative w-full max-w-56">
             <div className="absolute -left-3 -top-3 h-full w-full border border-copper-500/40" aria-hidden />
             <Image
               src={person.photo}
               alt={`${person.name}, ${person.role} i ${site.legalName}`}
               width={960}
               height={960}
-              className="relative aspect-square w-full max-w-md object-cover grayscale-[15%] rounded-sm"
+              className="relative aspect-square w-full object-cover grayscale-[15%] rounded-sm"
             />
           </div>
 
@@ -40,21 +40,7 @@ export function MeetExpert() {
               dokumentert og med høy faglig integritet.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-6">
-              {site.certifications.map((cert) => (
-                <div key={cert.label} className="flex items-center gap-3">
-                  <Image
-                    src={cert.image}
-                    alt={cert.alt}
-                    width={128}
-                    height={128}
-                    className="h-14 w-14 object-contain"
-                  />
-                  <span className="text-sm font-semibold text-graphite-800">{cert.label}</span>
-                </div>
-              ))}
-            </div>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-graphite-500">
+            <p className="mt-6 max-w-xl text-sm leading-relaxed text-graphite-500">
               {site.approvalText}
             </p>
 

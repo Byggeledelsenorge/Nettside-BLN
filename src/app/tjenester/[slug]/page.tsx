@@ -90,6 +90,18 @@ export default async function ServicePage({
             </div>
 
             <aside className="flex flex-col gap-8">
+              <div className="border border-graphite-900 bg-graphite-900 p-7 text-bone rounded-sm">
+                <h2 className="text-lg font-semibold tracking-tight">
+                  Trenger du byggfaglig bistand?
+                </h2>
+                <p className="mt-3 text-graphite-300">
+                  Fortell oss kort om saken, så gir vi deg en ærlig vurdering.
+                </p>
+                <Button href="/kontakt" variant="accent" size="md" className="mt-5 w-full">
+                  Ta kontakt
+                </Button>
+              </div>
+
               <div className="border border-graphite-200 bg-white p-7 rounded-sm">
                 <h2 className="text-lg font-semibold tracking-tight text-graphite-900">
                   Aktuelt når
@@ -102,18 +114,6 @@ export default async function ServicePage({
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              <div className="border border-graphite-900 bg-graphite-900 p-7 text-bone rounded-sm">
-                <h2 className="text-lg font-semibold tracking-tight">
-                  Trenger du byggfaglig bistand?
-                </h2>
-                <p className="mt-3 text-graphite-300">
-                  Fortell oss kort om saken, så gir vi deg en ærlig vurdering.
-                </p>
-                <Button href="/kontakt" variant="accent" size="md" className="mt-5 w-full">
-                  Ta kontakt
-                </Button>
               </div>
             </aside>
           </div>

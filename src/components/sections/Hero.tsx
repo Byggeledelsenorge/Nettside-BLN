@@ -72,9 +72,9 @@ export function Hero() {
                 key={cert.label}
                 src={cert.image}
                 alt={cert.alt}
-                width={128}
-                height={128}
-                className="h-12 w-12 object-contain"
+                width={256}
+                height={256}
+                className="h-28 w-28 object-contain"
               />
             ))}
           </div>

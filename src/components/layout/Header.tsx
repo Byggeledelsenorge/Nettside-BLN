@@ -14,7 +14,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-graphite-200 bg-bone/85 backdrop-blur-md">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-5 sm:h-24 sm:px-8 lg:px-10">
         <Link href="/" className="flex items-center" aria-label={`${site.name} – til forsiden`}>
           <Image
             src="/logo.png"
@@ -22,13 +22,14 @@ export function Header() {
             width={1600}
             height={798}
             priority
-            className="h-8 w-auto sm:h-9"
+            className="h-16 w-auto sm:h-20"
           />
         </Link>
 
-        <nav aria-label="Hovedmeny" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Hovedmeny" className="hidden items-center gap-6 lg:flex">
           {site.nav.map((item) => {
-            const active = pathname === item.href;
+            const active =
+              pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}

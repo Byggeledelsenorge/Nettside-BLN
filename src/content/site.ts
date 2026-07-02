@@ -52,6 +52,8 @@ export const site = {
   nav: [
     { label: "Tjenester", href: "/private" },
     { label: "Bedrift", href: "/bedrift" },
+    { label: "Referanser", href: "/referanser" },
+    { label: "Fagbase", href: "/fagbase" },
     { label: "Om oss", href: "/om-oss" },
     { label: "Kontakt", href: "/kontakt" },
   ],
