@@ -5,6 +5,7 @@ export const runtime = "nodejs";
 
 type Payload = {
   audience?: string;
+  service?: string;
   name?: string;
   email?: string;
   phone?: string;
@@ -34,6 +35,7 @@ export async function POST(request: Request) {
   const email = data.email?.trim() ?? "";
   const phone = data.phone?.trim() ?? "";
   const message = data.message?.trim() ?? "";
+  const service = data.service?.trim() ?? "";
   const audience = data.audience === "bedrift" ? "Bedrift" : "Privatperson";
 
   if (!name || !email || !message) {
@@ -49,9 +51,12 @@ export async function POST(request: Request) {
     );
   }
 
-  const subject = `Ny henvendelse (${audience}) – ${name}`;
+  const subject = service
+    ? `Ny henvendelse (${audience}) – ${service} – ${name}`
+    : `Ny henvendelse (${audience}) – ${name}`;
   const lines = [
     `Type: ${audience}`,
+    `Tjeneste: ${service || "—"}`,
     `Navn: ${name}`,
     `E-post: ${email}`,
     `Telefon: ${phone || "—"}`,
@@ -62,6 +67,7 @@ export async function POST(request: Request) {
   const html = `
     <h2>Ny henvendelse fra nettsiden</h2>
     <p><strong>Type:</strong> ${escapeHtml(audience)}</p>
+    <p><strong>Tjeneste:</strong> ${escapeHtml(service) || "—"}</p>
     <p><strong>Navn:</strong> ${escapeHtml(name)}</p>
     <p><strong>E-post:</strong> ${escapeHtml(email)}</p>
     <p><strong>Telefon:</strong> ${escapeHtml(phone) || "—"}</p>

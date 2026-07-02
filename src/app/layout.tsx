@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    "Uavhengig byggfaglig rådgiver for boligeiere og bedrifter. Vi hjelper deg med reklamasjoner, byggfeil, uavhengig kontroll, overtakelse og byggeledelse – over hele Norge.",
+    "Uavhengig byggfaglig rådgiver i Ålesund og på Sunnmøre. Vi hjelper boligeiere med reklamasjoner, byggfeil, uavhengig kontroll og overtakelse – og tilbyr byggeledelse og sakkyndig bistand for bedrifter og advokater.",
   openGraph: {
     type: "website",
     locale: "nb_NO",

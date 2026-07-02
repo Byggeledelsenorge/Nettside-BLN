@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/Card";
+import { ServiceIcon } from "@/components/ui/icons";
 import type { Service } from "@/content/services";
 
 type ServiceCardProps = {
@@ -10,6 +11,9 @@ type ServiceCardProps = {
 export function ServiceCard({ service, compact }: ServiceCardProps) {
   return (
     <Card href={`/tjenester/${service.slug}`} interactive>
+      <span className="mb-5 inline-flex h-11 w-11 items-center justify-center border border-graphite-200 bg-bone text-copper-600 transition-colors group-hover:border-copper-500/60 rounded-sm">
+        <ServiceIcon slug={service.slug} />
+      </span>
       <h3 className="text-lg font-semibold tracking-tight text-graphite-900">
         {service.shortTitle}
       </h3>

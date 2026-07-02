@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "accent" | "outline" | "ghost";
+type Variant = "primary" | "accent" | "outline" | "outlineLight" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const base =
@@ -16,6 +16,9 @@ const variants: Record<Variant, string> = {
     "bg-copper-600 text-white hover:bg-copper-700 focus-visible:outline-copper-700",
   outline:
     "border border-graphite-300 text-graphite-900 hover:border-graphite-900 hover:bg-graphite-50 focus-visible:outline-graphite-900",
+  // Outline for morke flater (bone tekst)
+  outlineLight:
+    "border border-graphite-700 text-bone hover:border-bone hover:bg-graphite-900 focus-visible:outline-bone",
   ghost:
     "text-graphite-900 hover:bg-graphite-100 focus-visible:outline-graphite-900",
 };

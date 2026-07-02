@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { privateServices, businessServices } from "@/content/services";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -11,7 +12,13 @@ const fieldClass =
 
 const labelClass = "mb-1.5 block text-sm font-medium text-graphite-800";
 
-export function ContactForm({ defaultAudience = "privat" }: { defaultAudience?: "privat" | "bedrift" }) {
+type ContactFormProps = {
+  defaultAudience?: "privat" | "bedrift";
+  /** Forhåndsvalgt tjeneste (shortTitle) når skjemaet ligger på en tjenesteside. */
+  defaultService?: string;
+};
+
+export function ContactForm({ defaultAudience = "privat", defaultService = "" }: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -84,6 +91,38 @@ export function ContactForm({ defaultAudience = "privat" }: { defaultAudience?: 
           ))}
         </div>
       </fieldset>
+
+      <div>
+        <label htmlFor="service" className={labelClass}>
+          Hva gjelder henvendelsen?
+        </label>
+        <select
+          id="service"
+          name="service"
+          defaultValue={defaultService}
+          className={cn(fieldClass, "appearance-none bg-white")}
+        >
+          <option value="">Velg tjeneste (valgfritt)</option>
+          <optgroup label="For private boligeiere">
+            {privateServices.map((s) => (
+              <option key={s.slug} value={s.shortTitle}>
+                {s.shortTitle}
+              </option>
+            ))}
+          </optgroup>
+          <optgroup label="For bedrift og byggherrer">
+            {businessServices.map((s) => (
+              <option key={s.slug} value={s.shortTitle}>
+                {s.shortTitle}
+              </option>
+            ))}
+          </optgroup>
+          <optgroup label="Annet">
+            <option value="Sakkyndig / advokatbistand">Sakkyndig / advokatbistand</option>
+            <option value="Annet / vet ikke">Annet / vet ikke</option>
+          </optgroup>
+        </select>
+      </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>

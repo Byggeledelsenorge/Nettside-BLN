@@ -27,12 +27,7 @@ export function CtaSection() {
             <Button href="/kontakt" variant="accent" size="lg">
               {finalCta.primaryLabel}
             </Button>
-            <Button
-              href={site.phoneHref}
-              variant="outline"
-              size="lg"
-              className="border-graphite-700 text-bone hover:border-bone hover:bg-graphite-800"
-            >
+            <Button href={site.phoneHref} variant="outlineLight" size="lg">
               {finalCta.secondaryLabel} · {site.phone}
             </Button>
           </div>

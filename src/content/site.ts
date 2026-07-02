@@ -1,9 +1,5 @@
 // Sentralt innholdsregister for Byggeledelse Norge AS.
 // All synlig tekst er samlet her slik at den kan gjenbrukes og vedlikeholdes ett sted.
-//
-// VIKTIG: Felter merket med [VERIFISER ...] inneholder faktaopplysninger som
-// kunden ma fylle inn / bekrefte for publisering (ar, sertifiseringer,
-// telefonnummer, e-post, organisasjonsnummer, antall prosjekter, adresse).
 
 export const CTA_LABEL = "Trenger du byggfaglig bistand?";
 
@@ -12,22 +8,49 @@ export const site = {
   legalName: "Byggeledelse Norge AS",
   url: "https://www.byggeledelsenorge.no",
 
-  // --- Kontaktopplysninger (MA VERIFISERES) ---
-  phone: "[VERIFISER: telefonnummer]",
-  phoneHref: "tel:+47", // [VERIFISER: fullt nummer, f.eks. +4712345678]
-  email: "[VERIFISER: e-postadresse]",
-  orgNumber: "[VERIFISER: organisasjonsnummer]",
-  serviceArea: "Hele Norge", // [VERIFISER om geografisk avgrensning]
+  // --- Generell kontakt ---
+  phone: "70 15 31 00",
+  phoneHref: "tel:+4770153100",
+  email: "post@byggeledelsenorge.no",
+  orgNumber: "987 487 798",
+  serviceArea: "Ålesund og Sunnmøre",
   address: {
-    street: "[VERIFISER: gateadresse]",
-    postalCode: "[VERIFISER]",
-    city: "[VERIFISER: poststed]",
+    street: "Langelandsvegen 35",
+    postalCode: "6010",
+    city: "Ålesund",
     country: "Norge",
+    note: "Vi holder til i 4. etasje mot sør på nye Moa.",
   },
 
-  // --- Navigasjon ---
+  // --- Daglig leder / kontaktperson ---
+  contactPerson: {
+    name: "Tommy Howden",
+    role: "Daglig leder",
+    email: "tommy@byggeledelsenorge.no",
+    phone: "91 37 83 84",
+    phoneHref: "tel:+4791378384",
+    photo: "/Grafikk/tommy-howden-1920w.webp",
+  },
+
+  // --- Godkjenninger og sertifiseringer ---
+  certifications: [
+    {
+      label: "Sentralt godkjent",
+      image: "/Grafikk/sentralt-godkjent-1920w.webp",
+      alt: "Sentralt godkjent foretak",
+    },
+    {
+      label: "Uavhengig kontroll",
+      image: "/Grafikk/uavhengig-kontroll.webp",
+      alt: "Godkjent for uavhengig kontroll",
+    },
+  ],
+  approvalText:
+    "Byggeledelse Norge AS er sentralt godkjent med ansvarsrett etter plan- og bygningsloven, tiltaksklasse 1 for våtrom og lufttetthet.",
+
+  // --- Navigasjon (privatfokusert rekkefølge) ---
   nav: [
-    { label: "Private", href: "/private" },
+    { label: "Tjenester", href: "/private" },
     { label: "Bedrift", href: "/bedrift" },
     { label: "Om oss", href: "/om-oss" },
     { label: "Kontakt", href: "/kontakt" },
@@ -35,17 +58,17 @@ export const site = {
 } as const;
 
 export const hero = {
-  kicker: "Uavhengig byggfaglig rådgiver",
+  kicker: "Uavhengig byggfaglig rådgiver i Ålesund",
   // Problemorientert, privat-fokusert hovedoverskrift
   title: "Når noe er galt med boligen, trenger du noen på din side.",
   subtitle:
-    "Vi er den uavhengige fagpersonen du ringer ved byggfeil, mangler og konflikt med håndverker – og rådgiveren bedrifter bruker til byggeledelse og oppfølging av entrepriser.",
-  // Trust-elementer. [VERIFISER] der det er faktaopplysninger.
+    "Byggeledelse Norge er den uavhengige byggfaglige rådgiveren du ringer ved reklamasjon, byggfeil, konflikt med håndverker og overtakelse. Vi står på boligeierens side i Ålesund og på Sunnmøre – helt uavhengig av entreprenør og utbygger.",
+  // Trust-elementer basert på reelle godkjenninger
   trust: [
     { label: "Helt uavhengig", detail: "Ingen binding til entreprenør eller utbygger" },
-    { label: "Byggfaglig kompetanse", detail: "[VERIFISER: sertifiseringer / godkjenninger]" },
-    { label: "[VERIFISER] års erfaring", detail: "Fra både privatsaker og større prosjekter" },
-    { label: "Hele Norge", detail: "Vi bistår uavhengig av hvor du bor" },
+    { label: "Sentralt godkjent", detail: "Ansvarsrett etter plan- og bygningsloven" },
+    { label: "Uavhengig kontroll", detail: "Tiltaksklasse 1 – våtrom og lufttetthet" },
+    { label: "Lokalt forankret", detail: "Ålesund og Sunnmøre" },
   ],
 };
 
@@ -54,7 +77,7 @@ export const problemMirror = {
   kicker: "Har du et problem med boligen?",
   title: "Du kjenner deg kanskje igjen i én av disse.",
   intro:
-    "De fleste som kontakter oss står midt i noe vanskelig. Du trenger ikke ha oversikt over fag og regler – det er vår jobb. Her er situasjonene vi hjelper med hver uke.",
+    "De fleste som kontakter oss står midt i noe vanskelig. Du trenger ikke ha oversikt over fag og regler – det er vår jobb. Her er situasjonene vi hjelper boligeiere med hver uke.",
   items: [
     {
       title: "Konflikt med håndverkeren",
@@ -161,15 +184,46 @@ export const businessSection = {
     "Vi bistår byggherrer og virksomheter med faglig styring og oppfølging gjennom hele prosjektet.",
 };
 
-// SEO-register: prioriterte sokeord og forslag til landingssider.
-// Brukes som referanse og i metadata-keywords.
+// Kompakt, nedtonet bedrift-henvisning på forsiden (privat er hovedfokus).
+export const businessStrip = {
+  kicker: "Er du bedrift eller byggherre?",
+  title: "Vi tar også byggeledelse, prosjektledelse og byggherrebistand.",
+  body: "Uavhengig fagkompetanse for virksomheter og byggherrer – og en byggfaglig sakkyndig part for advokater i boligtvister.",
+  linkLabel: "Se tjenester for bedrift",
+  href: "/bedrift",
+};
+
+// Målgruppe: advokater (sekundært, på bedrift-siden).
+export const lawyerSection = {
+  kicker: "For advokater",
+  title: "Din byggfaglige sakkyndige i boligtvister.",
+  intro:
+    "Advokater havner ofte i bolig- og entreprisekonflikter uten byggfaglig kompetanse i eget hus. Da er vi den uavhengige fagpersonen som kartlegger, vurderer og dokumenterer det byggtekniske – slik at du kan bygge saken på et faglig solid grunnlag.",
+  items: [
+    {
+      title: "Sakkyndig vurdering",
+      body: "Nøktern, uavhengig byggfaglig vurdering av mangler, årsak og omfang opp mot kontrakt, forskrift og god håndverksskikk.",
+    },
+    {
+      title: "Dokumentasjon som holder i tvist",
+      body: "Etterprøvbar dokumentasjon og rapporter som står seg i forliksråd, nemnd og rettssak.",
+    },
+    {
+      title: "Byggfaglig støtte gjennom saken",
+      body: "Vi er sparringspartner for advokaten på det tekniske, og kan bistå frem mot og under en eventuell rettslig prosess.",
+    },
+  ],
+};
+
+// SEO-register: prioriterte sokeord (lokal profil) og forslag til landingssider.
 export const seoKeywords = [
-  "byggfaglig bistand",
-  "reklamasjon håndverker",
+  "byggfaglig rådgiver Ålesund",
+  "uavhengig byggfaglig rådgiver",
+  "reklamasjon håndverker Sunnmøre",
+  "byggfeil hjelp Ålesund",
   "uavhengig kontroll bolig",
-  "byggfeil hjelp",
   "overtakelse ny bolig",
-  "byggeledelse",
+  "byggeledelse Ålesund",
   "byggherrebistand",
-  "byggfaglig rådgiver",
+  "sakkyndig boligtvist",
 ];

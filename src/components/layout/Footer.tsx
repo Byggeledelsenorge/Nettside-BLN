@@ -24,12 +24,7 @@ export function Footer() {
             <Button href="/kontakt" variant="accent" size="lg">
               Ta kontakt
             </Button>
-            <Button
-              href={site.phoneHref}
-              variant="outline"
-              size="lg"
-              className="border-graphite-700 text-bone hover:border-bone hover:bg-graphite-900"
-            >
+            <Button href={site.phoneHref} variant="outlineLight" size="lg">
               Ring {site.phone}
             </Button>
           </div>
@@ -94,10 +89,8 @@ export function Footer() {
                   {site.email}
                 </a>
               </li>
-              <li>
-                <Link href="/om-oss" className="hover:text-bone">
-                  Om oss
-                </Link>
+              <li className="pt-1 text-graphite-400">
+                {site.address.street}, {site.address.postalCode} {site.address.city}
               </li>
               <li>
                 <Link href="/kontakt" className="hover:text-bone">
@@ -106,6 +99,24 @@ export function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className="flex flex-col gap-6 border-t border-graphite-800 py-10 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-5">
+            {site.certifications.map((cert) => (
+              <Image
+                key={cert.label}
+                src={cert.image}
+                alt={cert.alt}
+                width={128}
+                height={128}
+                className="h-12 w-12 object-contain"
+              />
+            ))}
+          </div>
+          <p className="max-w-xl text-xs leading-relaxed text-graphite-400">
+            {site.approvalText}
+          </p>
         </div>
 
         <div className="flex flex-col gap-2 border-t border-graphite-800 pt-8 text-xs text-graphite-500 sm:flex-row sm:items-center sm:justify-between">

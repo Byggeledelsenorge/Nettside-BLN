@@ -67,7 +67,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Reklamasjon håndverker – uavhengig byggfaglig bistand",
     metaDescription:
-      "I konflikt med entreprenør eller håndverker? Vi dokumenterer byggfeil og mangler faglig og gir deg et grunnlag som holder. Uavhengig byggfaglig bistand i hele Norge.",
+      "I konflikt med entreprenør eller håndverker? Vi dokumenterer byggfeil og mangler faglig og gir deg et grunnlag som holder. Uavhengig byggfaglig bistand i Ålesund og på Sunnmøre.",
     keywords: [
       "reklamasjon håndverker",
       "tvist entreprenør",
@@ -108,7 +108,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Byggfeil og mangler – hjelp til å avdekke og dokumentere",
     metaDescription:
-      "Mistenker du byggfeil eller mangler i boligen? Vi kartlegger feil, vurderer årsak og beskriver utbedring. Uavhengig byggfaglig vurdering i hele Norge.",
+      "Mistenker du byggfeil eller mangler i boligen? Vi kartlegger feil, vurderer årsak og beskriver utbedring. Uavhengig byggfaglig vurdering i Ålesund og på Sunnmøre.",
     keywords: [
       "byggfeil hjelp",
       "mangler bolig",
@@ -231,7 +231,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Byggfaglig rådgivning ved nybygg og oppussing",
     metaDescription:
-      "Uavhengig byggfaglig rådgiver for deg som skal bygge nytt eller pusse opp. Vi gjennomgår kontrakt, gir faglig sparring og følger opp kvalitet. Hele Norge.",
+      "Uavhengig byggfaglig rådgiver for deg som skal bygge nytt eller pusse opp. Vi gjennomgår kontrakt, gir faglig sparring og følger opp kvalitet. Ålesund og Sunnmøre.",
     keywords: [
       "byggfaglig rådgivning",
       "rådgiver nybygg",
@@ -272,7 +272,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Vurdering av utført arbeid – uavhengig kvalitetsvurdering",
     metaDescription:
-      "Usikker på om håndverkerarbeidet holder mål? Vi gir en uavhengig vurdering av kvaliteten opp mot avtale og fagkrav. Byggeledelse Norge, hele landet.",
+      "Usikker på om håndverkerarbeidet holder mål? Vi gir en uavhengig vurdering av kvaliteten opp mot avtale og fagkrav. Byggeledelse Norge, Ålesund og Sunnmøre.",
     keywords: [
       "vurdering utført arbeid",
       "kvalitet håndverkerarbeid",

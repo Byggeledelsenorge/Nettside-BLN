@@ -10,7 +10,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Byggfaglig bistand for private boligeiere",
   description:
-    "Uavhengig byggfaglig hjelp til boligeiere: reklamasjon mot håndverker, byggfeil og mangler, uavhengig kontroll, overtakelse og rådgivning ved nybygg. Hele Norge.",
+    "Uavhengig byggfaglig hjelp til boligeiere: reklamasjon mot håndverker, byggfeil og mangler, uavhengig kontroll, overtakelse og rådgivning ved nybygg. Ålesund og Sunnmøre.",
   path: "/private",
   keywords: [
     "byggfaglig bistand privat",

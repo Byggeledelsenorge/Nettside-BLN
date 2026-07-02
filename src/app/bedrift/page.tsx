@@ -3,20 +3,23 @@ import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { CtaSection } from "@/components/sections/CtaSection";
+import { LawyerSection } from "@/components/sections/LawyerSection";
 import { businessServices } from "@/content/services";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "Byggeledelse og prosjektoppfølging for bedrifter",
   description:
-    "Byggeledelse, prosjektledelse, byggherrebistand, HMS-koordinering (KU/KP), kvalitetssikring og oppfølging av entrepriser for byggherrer og virksomheter. Byggeledelse Norge.",
+    "Byggeledelse, prosjektledelse, byggherrebistand, HMS-koordinering (KU/KP), kvalitetssikring og oppfølging av entrepriser for byggherrer og virksomheter – og uavhengig byggfaglig sakkyndig for advokater i boligtvister. Byggeledelse Norge.",
   path: "/bedrift",
   keywords: [
-    "byggeledelse",
+    "byggeledelse Ålesund",
     "prosjektledelse bygg",
     "byggherrebistand",
     "HMS-koordinator",
     "oppfølging entrepriser",
+    "byggfaglig sakkyndig advokat",
+    "sakkyndig boligtvist",
   ],
 });
 
@@ -63,6 +66,8 @@ export default function BedriftPage() {
           </div>
         </Container>
       </section>
+
+      <LawyerSection />
 
       <CtaSection />
     </>

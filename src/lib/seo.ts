@@ -15,8 +15,13 @@ export function organizationJsonLd() {
     url: site.url,
     image: `${site.url}/og-image.png`,
     description:
-      "Uavhengig byggfaglig rådgiver for boligeiere og bedrifter. Bistand ved reklamasjon, byggfeil, uavhengig kontroll, overtakelse, byggeledelse og prosjektoppfølging.",
-    areaServed: { "@type": "Country", name: "Norge" },
+      "Uavhengig byggfaglig rådgiver i Ålesund og på Sunnmøre. Bistand til boligeiere ved reklamasjon, byggfeil, uavhengig kontroll og overtakelse – og byggeledelse, byggherrebistand og sakkyndig bistand for bedrifter og advokater.",
+    telephone: site.phone,
+    email: site.email,
+    areaServed: [
+      { "@type": "City", name: "Ålesund" },
+      { "@type": "AdministrativeArea", name: "Sunnmøre" },
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.street,
@@ -24,12 +29,21 @@ export function organizationJsonLd() {
       addressLocality: site.address.city,
       addressCountry: "NO",
     },
+    founder: {
+      "@type": "Person",
+      name: site.contactPerson.name,
+      jobTitle: site.contactPerson.role,
+      email: site.contactPerson.email,
+      telephone: site.contactPerson.phone,
+    },
     knowsAbout: [
       "Byggfaglig rådgivning",
       "Reklamasjon og byggfeil",
       "Uavhengig kontroll",
+      "Overtakelse av bolig",
       "Byggeledelse",
       "Byggherrebistand",
+      "Sakkyndig i boligtvist",
     ],
   };
 }
@@ -42,7 +56,10 @@ export function serviceJsonLd(service: Service) {
     name: service.title,
     description: service.metaDescription,
     serviceType: service.title,
-    areaServed: { "@type": "Country", name: "Norge" },
+    areaServed: [
+      { "@type": "City", name: "Ålesund" },
+      { "@type": "AdministrativeArea", name: "Sunnmøre" },
+    ],
     provider: {
       "@type": "ProfessionalService",
       name: site.legalName,
