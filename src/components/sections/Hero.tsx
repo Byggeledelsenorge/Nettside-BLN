@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { TrustBadge } from "@/components/ui/TrustBadge";
-import { CTA_LABEL, hero, site } from "@/content/site";
+import { CTA_LABEL, hero } from "@/content/site";
 
 export function Hero() {
   return (
@@ -62,27 +62,6 @@ export function Hero() {
           ))}
         </div>
       </Container>
-
-      {/* Godkjennings-band */}
-      <div className="relative border-t border-graphite-800 bg-graphite-950/60">
-        <Container className="flex flex-col items-center justify-center gap-x-8 gap-y-4 py-6 sm:flex-row">
-          <div className="flex items-center gap-6">
-            {site.certifications.map((cert) => (
-              <Image
-                key={cert.label}
-                src={cert.image}
-                alt={cert.alt}
-                width={256}
-                height={256}
-                className="h-28 w-28 object-contain"
-              />
-            ))}
-          </div>
-          <p className="max-w-xl text-center text-xs leading-relaxed text-graphite-400 sm:text-left">
-            {site.approvalText}
-          </p>
-        </Container>
-      </div>
     </section>
   );
 }
