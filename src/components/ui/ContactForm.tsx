@@ -24,30 +24,68 @@ export function ContactForm({ defaultAudience = "privat", defaultService = "" }:
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const audience = formData.get("audience") === "bedrift" ? "Bedrift" : "Privatperson";
+    const service = ((formData.get("service") as string) ?? "").trim();
+    const name = ((formData.get("name") as string) ?? "").trim();
+    const email = ((formData.get("email") as string) ?? "").trim();
+    const phone = ((formData.get("phone") as string) ?? "").trim();
+    const message = ((formData.get("message") as string) ?? "").trim();
+
+    if (!name || !email || !message) {
+      setStatus("error");
+      setErrorMsg("Fyll inn navn, e-post og en kort beskrivelse.");
+      return;
+    }
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setStatus("error");
+      setErrorMsg("Skjemaet er ikke konfigurert riktig. Ring oss gjerne i mellomtiden.");
+      return;
+    }
+
     setStatus("submitting");
     setErrorMsg("");
 
-    const formData = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    const subject = service
+      ? `Ny henvendelse (${audience}) – ${service} – ${name}`
+      : `Ny henvendelse (${audience}) – ${name}`;
 
     try {
-      const res = await fetch("/api/kontakt", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject,
+          from_name: "Byggeledelse Norge – nettside",
+          replyto: email,
+          botcheck: Boolean(formData.get("botcheck")),
+          Type: audience,
+          Tjeneste: service || "—",
+          Navn: name,
+          "E-post": email,
+          Telefon: phone || "—",
+          Melding: message,
+        }),
       });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.error ?? "Noe gikk galt.");
+      const data = (await res.json().catch(() => ({}))) as {
+        success?: boolean;
+        message?: string;
+      };
+      if (!res.ok || !data.success) {
+        throw new Error(data?.message ?? "Noe gikk galt.");
       }
       setStatus("success");
-      event.currentTarget.reset();
-    } catch (err) {
+      form.reset();
+    } catch {
       setStatus("error");
       setErrorMsg(
-        err instanceof Error
-          ? err.message
-          : "Vi klarte ikke å sende meldingen. Prøv igjen, eller ring oss.",
+        "Vi klarte ikke å sende meldingen akkurat nå. Prøv igjen, eller ring oss.",
       );
     }
   }
@@ -69,6 +107,15 @@ export function ContactForm({ defaultAudience = "privat", defaultService = "" }:
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        style={{ display: "none" }}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
       <fieldset className="flex flex-col gap-2">
         <legend className={labelClass}>Jeg henvender meg som</legend>
         <div className="grid grid-cols-2 gap-3">
