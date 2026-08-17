@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
@@ -14,14 +13,6 @@ type Payload = {
 };
 
 const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-
-function escapeHtml(input: string): string {
-  return input
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
 
 export async function POST(request: Request) {
   let data: Payload;
@@ -64,42 +55,42 @@ export async function POST(request: Request) {
     "Melding:",
     message,
   ];
-  const html = `
-    <h2>Ny henvendelse fra nettsiden</h2>
-    <p><strong>Type:</strong> ${escapeHtml(audience)}</p>
-    <p><strong>Tjeneste:</strong> ${escapeHtml(service) || "—"}</p>
-    <p><strong>Navn:</strong> ${escapeHtml(name)}</p>
-    <p><strong>E-post:</strong> ${escapeHtml(email)}</p>
-    <p><strong>Telefon:</strong> ${escapeHtml(phone) || "—"}</p>
-    <p><strong>Melding:</strong></p>
-    <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
-  `;
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
 
-  // I utvikling / for konfigurasjon er satt opp: ikke feil, men logg pa server.
-  if (!apiKey || !to || !from) {
+  // Uten konfigurert nøkkel: ikke feil, men logg på server (som i utvikling).
+  if (!accessKey) {
     console.warn(
-      "[kontakt] Resend er ikke konfigurert (RESEND_API_KEY/CONTACT_TO_EMAIL/CONTACT_FROM_EMAIL mangler). Henvendelse mottatt:\n" +
+      "[kontakt] Web3Forms er ikke konfigurert (WEB3FORMS_ACCESS_KEY mangler). Henvendelse mottatt:\n" +
         lines.join("\n"),
     );
     return NextResponse.json({ ok: true, delivered: false });
   }
 
   try {
-    const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
-      from,
-      to,
-      replyTo: email,
-      subject,
-      text: lines.join("\n"),
-      html,
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: accessKey,
+        subject,
+        from_name: "Byggeledelse Norge – nettside",
+        replyto: email,
+        Type: audience,
+        Tjeneste: service || "—",
+        Navn: name,
+        "E-post": email,
+        Telefon: phone || "—",
+        Melding: message,
+      }),
     });
-    if (error) {
-      console.error("[kontakt] Resend-feil:", error);
+
+    const json = (await res.json().catch(() => ({}))) as { success?: boolean };
+    if (!res.ok || !json.success) {
+      console.error("[kontakt] Web3Forms-feil:", json);
       return NextResponse.json(
         { error: "Vi klarte ikke å sende meldingen akkurat nå. Prøv igjen, eller ring oss." },
         { status: 502 },
