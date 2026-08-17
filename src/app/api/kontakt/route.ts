@@ -88,9 +88,17 @@ export async function POST(request: Request) {
       }),
     });
 
-    const json = (await res.json().catch(() => ({}))) as { success?: boolean };
+    const raw = await res.text();
+    let json: { success?: boolean; message?: string } = {};
+    try {
+      json = JSON.parse(raw) as { success?: boolean; message?: string };
+    } catch {
+      // Web3Forms svarte ikke med JSON – behold rå tekst for logging.
+    }
     if (!res.ok || !json.success) {
-      console.error("[kontakt] Web3Forms-feil:", json);
+      console.error(
+        `[kontakt] Web3Forms-feil (status ${res.status}): ${raw.slice(0, 500)}`,
+      );
       return NextResponse.json(
         { error: "Vi klarte ikke å sende meldingen akkurat nå. Prøv igjen, eller ring oss." },
         { status: 502 },
