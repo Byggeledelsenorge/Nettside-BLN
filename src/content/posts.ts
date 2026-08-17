@@ -1,11 +1,20 @@
 // Fagbase / kunnskapsartikler for Byggeledelse Norge AS.
-// Migrert fra den opprinnelige nettsiden. Brukes av /fagbase og /fagbase/[slug].
+// Brukes av /fagbase og /fagbase/[slug]. Innholdet er hentet fra den tidligere
+// artikkelversjonen og tilpasset dagens fagbase-format.
 
 export type PostBlock =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string }
   | { type: "list"; items: string[] }
-  | { type: "callout"; text: string };
+  | { type: "callout"; text: string }
+  | {
+      type: "image";
+      src: string;
+      alt: string;
+      width: number;
+      height: number;
+      caption?: string;
+    };
 
 export type BlogPost = {
   slug: string;
@@ -27,315 +36,249 @@ export type BlogPost = {
 
 export const posts: BlogPost[] = [
   {
-    slug: "energiradgivning",
-    title: "Energirådgivning: Se nøyaktig hvor boligen din lekker penger",
+    slug: "overtakelse-av-ny-bolig-sjekkliste",
+    title: "Overtakelse av ny bolig: dette bør du sjekke",
     excerpt:
-      "Byggeledelse Norge er sertifiserte energirådgivere: Vi finner «strømtyvene» i hjemmet ditt i Ålesund og lager en konkret plan som kutter kostnadene. Staten dekker inntil 5 000 kr av rådgivningen.",
-    cover: "/Fagbasen/byggeledelse-norge-energi-1920w.webp",
-    date: "2026-01-12",
-    dateLabel: "12. januar 2026",
-    author: "Tommy Howden",
-    category: "Privat",
-    body: [
-      {
-        type: "paragraph",
-        text: "De fleste boligeiere i Ålesund vet at strømmen er dyr, men de færreste vet nøyaktig hvor boligen lekker varme. Å gjette på tiltak som etterisolering eller bytte av vinduer kan bli en ekstremt dyr feilprioritering. Uten en profesjonell energianalyse risikerer du å bruke 100 000 kr på tiltak som bare sparer deg for noen få hundrelapper i måneden.",
-      },
-      { type: "heading", text: "En profesjonell «helsesjekk» av boligen din" },
-      {
-        type: "paragraph",
-        text: "Som sertifiserte energirådgivere (via NEAK) gjør Byggeledelse Norge det kompliserte enkelt. Vi kommer hjem til deg, går gjennom hele boligen, og gir deg en komplett rapport som viser:",
-      },
-      {
-        type: "list",
-        items: [
-          "Nøyaktig energimerke: Hvor effektiv er boligen din i dag?",
-          "Tiltaksplanen: Hvilke oppgraderinger gir mest «bang for the buck»?",
-          "Støtteoversikt: Hvor mye kan du få i støtte fra Enova for de ulike tiltakene?",
-        ],
-      },
-      {
-        type: "callout",
-        text: "Visste du? Enova gir deg inntil 5 000 kr i ren støtte bare for å gjennomføre selve energirådgivningen. Vi hjelper deg med hele søknadsprosessen.",
-      },
-      { type: "heading", text: "Lokalkunnskap i Ålesund" },
-      {
-        type: "paragraph",
-        text: "Vi kjenner klimaet på Sunnmøre. Vi vet hva som kreves for at en bolig skal tåle vestlandsværet samtidig som den holder på varmen.",
-      },
-      {
-        type: "list",
-        items: [
-          "Sertifiserte eksperter: Utdannet gjennom NEAK.",
-          "Full kontroll: Vi håndterer dokumentasjonen Enova krever.",
-          "Verdiøkning: En bolig med bedre energikarakter er mer attraktiv på dagens marked.",
-        ],
-      },
-      {
-        type: "paragraph",
-        text: "Bestill en uforpliktende prat om energirådgivning i dag – så finner vi ut hvor det lønner seg for deg å sette inn støtet.",
-      },
-    ],
-    metaTitle: "Energirådgivning i Ålesund – finn strømtyvene og få Enova-støtte",
-    metaDescription:
-      "Sertifiserte energirådgivere i Ålesund. Vi kartlegger hvor boligen lekker varme, lager en tiltaksplan og hjelper deg med Enova-støtte (inntil 5 000 kr for selve rådgivningen).",
-    keywords: [
-      "energirådgivning Ålesund",
-      "Enova-støtte energirådgivning",
-      "energimerke bolig",
-      "energianalyse bolig",
-      "NEAK energirådgiver",
-    ],
-  },
-  {
-    slug: "byggeledelse-passasjen-parkering",
-    title: "Presisjon ved sykehuset: Sikker byggeledelse av Passasjen Parkering",
-    excerpt:
-      "Å bygge 18 000 kvadratmeter infrastruktur tett på et operativt sykehus krever ekstrem presisjon. Slik ledet vi byggingen av Passasjen Parkering.",
-    cover: "/Fagbasen/passasjen-parkering-a-lesund-sykehus-1920w.webp",
-    coverCredit: "Foto: Marit Brunstad",
-    date: "2025-12-16",
-    dateLabel: "16. desember 2025",
-    author: "Tommy Howden",
-    category: "Prosjekt",
-    body: [
-      {
-        type: "paragraph",
-        text: "Å bygge 18 000 kvadratmeter infrastruktur tett på et operativt sykehus krever mer enn bare teknisk innsikt – det krever ekstrem presisjon. Mandag 8. desember åpnet «Passasjen Parkering», og for oss i Byggeledelse Norge markerer det en vellykket avslutning på et krevende oppdrag.",
-      },
-      {
-        type: "paragraph",
-        text: "Som byggherres prosjektleder har vi hatt ansvaret for å styre prosessene på vegne av Sunnmøre Parkering AS. Målet var klart: å levere et toppmoderne anlegg innenfor budsjett, kvalitetskrav og tidsrammen. Nå står resultatet klart med over 600 parkeringsplasser og tørrskodd adkomst for pasienter og ansatte.",
-      },
-      { type: "heading", text: "Sikker fremdrift i et sårbart miljø" },
-      {
-        type: "paragraph",
-        text: "Når byggeplassen grenser til et sykehus i full drift og to andre byggeprosjekter, er HMS og logistikk de viktigste suksessfaktorene. Vi har lagt stor vekt på proaktiv risikostyring. Gjennom tett oppfølging av totalentreprenør Veidekke sikret vi at usikkerheter ble minimert, og at logistikken rundt tungtransport har gått smertefritt. Dette prosjektet har vist at presisjon i planleggingsfasen er nøkkelen til en trygg gjennomføring.",
-      },
-      { type: "heading", text: "Resultatet: Et løft for hele regionen" },
-      {
-        type: "paragraph",
-        text: "«Passasjen Parkering» er mer enn et sted å parkere; det er et nytt knutepunkt som binder sammen kollektivtransport og sykehus.",
-      },
-      {
-        type: "list",
-        items: [
-          "Kapasitet: Ca. 600 plasser fordelt på fem etasjer.",
-          "Universell utforming: Heiser og gangbroer sikrer enkel tilkomst for alle.",
-          "Kvalitet: Bruk av prefabrikkerte betongelementer og lavkarbonbetong sikrer både fremdrift og miljøprofil.",
-        ],
-      },
-      { type: "heading", text: "Læring gjennom samspill" },
-      {
-        type: "paragraph",
-        text: "Ingen komplekse prosjekter gjennomføres uten utfordringer. For oss har dette vært en reise preget av mye bra læring underveis. Vi har håndtert alt fra krevende værforhold til teknisk samhandling mot nærliggende byggeprosjekter. Løsningen har ligget i et godt samspill mellom oss, entreprenør og byggherre. Vi er takknemlige for tilliten vi har fått og stolte av jobben vi har vært en del av.",
-      },
-      {
-        type: "paragraph",
-        text: "Dette prosjektet har styrket vår kompetanse på byggeledelse i sensitive områder.",
-      },
-    ],
-    metaTitle: "Byggeledelse av Passasjen Parkering – presisjon ved sykehuset",
-    metaDescription:
-      "Byggeledelse Norge var byggherres prosjektleder for Passasjen Parkering i Ålesund: 18 000 m² og over 600 plasser tett på et operativt sykehus, levert på tid og budsjett.",
-    keywords: [
-      "byggeledelse Ålesund",
-      "Passasjen Parkering",
-      "prosjektledelse bygg",
-      "byggherres prosjektleder",
-    ],
-  },
-  {
-    slug: "byggelanskontroll",
-    title: "Byggelånets tveeggede sverd: Slik sikrer du at prosjektet ikke blir et mareritt",
-    excerpt:
-      "Nesten 1 av 3 byggeprosjekter i Norge opplever forsinkelser eller budsjettoverskridelser. Slik holder byggelånskontrolløren prosjektet på skinnene.",
-    cover: "/Fagbasen/byggelanskontroll-byggeldelse-byggela-n-1920w.webp",
-    date: "2025-10-11",
-    dateLabel: "11. oktober 2025",
-    author: "Tommy Howden",
-    category: "Byggherre",
-    body: [
-      {
-        type: "paragraph",
-        text: "Har du noen gang lurt på hvorfor banken er så involvert i byggeprosjektet ditt? Svaret er enkelt: Nesten 1 av 3 byggeprosjekter i Norge opplever forsinkelser eller budsjettoverskridelser. Dette er ikke bare en hodepine for deg som byggherre, men en betydelig risiko for banken som finansierer drømmen. Løsningen er en nøkkelperson du kanskje aldri har hørt om, men som er helt avgjørende for prosjektets suksess: byggelånskontrolløren.",
-      },
-      { type: "heading", text: "Hva er egentlig et byggelån?" },
-      {
-        type: "paragraph",
-        text: "Et byggelån er ikke som et vanlig boliglån. Mens et boliglån utbetales som en engangssum for kjøp av en eksisterende bolig, er et byggelån en midlertidig kredittramme som banken stiller til rådighet for deg i byggeperioden. Pengene utbetales i takt med at byggeprosjektet skrider frem og fakturaer fra entreprenører og leverandører forfaller. Du betaler kun renter av det beløpet du til enhver tid har brukt av rammen, ikke av hele lånesummen fra dag én.",
-      },
-      {
-        type: "paragraph",
-        text: "Dette gir en fleksibel finansieringsløsning, men det kommer med en viktig forutsetning fra bankens side: De trenger en garanti for at pengene de låner ut faktisk blir omgjort til en ferdig bolig med den verdien som er forutsatt. Det er her byggelånskontrollen kommer inn i bildet.",
-      },
-      { type: "heading", text: "Fra søknad til innvilget kreditt" },
-      {
-        type: "paragraph",
-        text: "Prosessen for å få et byggelån er mer omfattende enn for et vanlig lån. Banken vil kreve detaljert dokumentasjon for å vurdere risikoen og realismen i prosjektet ditt. Vær forberedt på å levere:",
-      },
-      {
-        type: "list",
-        items: [
-          "Detaljert prosjektbeskrivelse: Hva skal bygges, og hvordan?",
-          "Budsjett og finansieringsplan: En fullstendig oversikt over alle forventede kostnader, fra tomtekjøp til ferdigattest, med en buffer for uforutsette utgifter (vanligvis 10–15 % av total kostnad).",
-          "Tegninger og godkjenninger: Arkitekttegninger og kopi av byggetillatelse fra kommunen.",
-          "Kontrakter med ansvarlige foretak: Signerte avtaler med entreprenør, rørlegger, elektriker og andre sentrale aktører.",
-          "Fremdriftsplan: En tidslinje som viser når de ulike fasene av byggeprosjektet skal starte og avsluttes.",
-        ],
-      },
-      {
-        type: "paragraph",
-        text: "Banken bruker denne informasjonen til å vurdere om prosjektet er økonomisk levedyktig. Når lånet er innvilget, opprettes en byggelånskonto, og banken engasjerer en uavhengig byggelånskontrollør.",
-      },
-      { type: "heading", text: "Byggelånskontrolløren: Bankens øyne på byggeplassen" },
-      {
-        type: "paragraph",
-        text: "Byggelånskontrolløren, ofte en takstmann eller bygningsingeniør, er en nøytral tredjepart som ansettes av banken, men som du som låntaker betaler for. Deres primære oppgave er å sikre at bankens penger brukes i henhold til planen og at verdien som skapes på eiendommen samsvarer med beløpet som er trukket fra byggelånet.",
-      },
-      {
-        type: "paragraph",
-        text: "Kontrolløren er ikke en byggeleder og har ikke ansvar for den daglige driften eller kvaliteten på arbeidet som utføres. Rollen er utelukkende knyttet til den økonomiske og fremdriftsmessige siden av prosjektet, og kan deles inn i tre hovedområder:",
-      },
-      {
-        type: "list",
-        items: [
-          "Forhåndskontroll og rapportering: Før første spadetak gjennomgår kontrolløren hele prosjektgrunnlaget – budsjett, tegninger, kontrakter og fremdriftsplan – for å vurdere om det er realistisk. Er budsjettet urealistisk lavt eller fremdriftsplanen for optimistisk, flagges det i en oppstartsrapport til banken.",
-          "Løpende kontroll av fremdrift og uttak: Kontrolløren utfører periodiske befaringer (ofte månedlig eller ved definerte milepæler) og attesterer at arbeidet en faktura gjelder faktisk er utført, før banken utbetaler penger. Dette forhindrer at du betaler for mye, for tidlig.",
-          "Sluttkontroll og verdivurdering: Når boligen er ferdigstilt gjennomføres en sluttbefaring og en sluttrapport til banken. Kontrolløren fastsetter også en foreløpig verdivurdering – avgjørende for konvertering til boliglån.",
-        ],
-      },
-      { type: "heading", text: "Fra byggelån til boliglån: den endelige overgangen" },
-      {
-        type: "paragraph",
-        text: "Når prosjektet er fullført og kommunen har utstedt en ferdigattest, er det på tide å avslutte byggelånet. Byggelånet er en dyr låneform, med en rente som ofte ligger 1–2 prosentpoeng over et vanlig boliglån. Målet er derfor å ha det så kort tid som mulig. Ved konvertering gjøres hele det benyttede beløpet, inkludert påløpte renter, om til et ordinært, langsiktig boliglån basert på den endelige verdivurderingen av boligen.",
-      },
-      {
-        type: "paragraph",
-        text: "Denne overgangen markerer slutten på byggeprosessen og starten på ditt nye liv som eier av en splitter ny bolig. Takket være en strukturert prosess med en profesjonell byggelånskontrollør kan du være trygg på at veien dit har vært økonomisk forsvarlig og transparent – både for deg og for banken.",
-      },
-    ],
-    metaTitle: "Byggelånskontroll – slik sikrer du byggeprosjektet ditt",
-    metaDescription:
-      "Hva er en byggelånskontrollør, og hvorfor er rollen avgjørende? Guide til byggelån, kontroll av fremdrift og uttak, og overgangen fra byggelån til boliglån.",
-    keywords: [
-      "byggelånskontroll",
-      "byggelånskontrollør",
-      "byggelån",
-      "byggelån til boliglån",
-    ],
-  },
-  {
-    slug: "overtakelse-bustadoppforingsloven",
-    title: "Håndboken til en feilfri boligovertakelse: Slik navigerer du bustadoppføringsloven",
-    excerpt:
-      "Alt du må vite om overtakelse av ny bolig etter bustadoppføringsloven – innkalling, befaring, protokoll og din rett til å holde tilbake penger.",
+      "Overtakelsen er din viktigste anledning til å få feil og mangler protokollført. Her er hva du bør være forberedt på – og hvorfor det lønner seg å ha en fagperson med.",
     cover: "/Fagbasen/overtakelse-av-bolig-protokoll-1920w.webp",
-    date: "2025-09-18",
-    dateLabel: "18. september 2025",
+    date: "2026-06-18",
+    dateLabel: "18. juni 2026",
     author: "Tommy Howden",
-    category: "Privat",
+    category: "Overtakelse",
     body: [
       {
         type: "paragraph",
-        text: "For mange er overtakelsen av en ny bolig kulminasjonen av en lang og kostbar prosess. Bustadoppføringsloven er ditt viktigste verneskjold, men kjenner du reglene godt nok til å bruke det? Denne artikkelen gir deg en komplett guide til overtakelsesprosessen, fra entreprenørens innkalling til din endelige signatur, slik at du kan tre inn i din nye bolig med trygghet og kontroll.",
-      },
-      { type: "heading", text: "Hva er en overtakelsesforretning?" },
-      {
-        type: "paragraph",
-        text: "En overtakelsesforretning er det formelle møtet der du som forbruker offisielt overtar ansvaret og risikoen for din nye bolig fra utbygger eller entreprenør. Dette er ikke bare en hyggelig overrekkelse av nøkler; det er en kritisk juridisk handling regulert av bustadoppføringslova §§ 14 og 15. Målet er å gjennomføre en grundig befaring for å konstatere at arbeidet er utført i henhold til avtalen, og å avdekke eventuelle feil og mangler. Resultatet skal dokumenteres i en overtakelsesprotokoll – ditt sterkeste bevis dersom det skulle oppstå tvister i etterkant.",
-      },
-      { type: "heading", text: "Steg 1: Innkallingen – startskuddet" },
-      {
-        type: "paragraph",
-        text: "Prosessen starter ikke når du står på dørstokken, men når du mottar en skriftlig innkalling fra entreprenøren. Ifølge bustadoppføringsloven skal entreprenøren innkalle deg med et rimelig varsel, som i praksis normalt betyr minst syv dager, og innkallingen skal oppgi et nøyaktig tidspunkt for overtakelsen.",
+        text: "Overtakelsen er øyeblikket der ansvaret for boligen går over fra utbygger til deg. Det er også den beste anledningen du har til å få dokumentert det som ikke er som det skal. Det du ikke fanger opp nå, kan bli vanskeligere og dyrere å rette opp senere.",
       },
       {
         type: "paragraph",
-        text: "Entreprenøren har rett til å kalle inn til overtakelse selv om ikke absolutt alt arbeid er ferdigstilt – typisk mindre malerarbeid eller utvendig arbeid som må vente på grunn av årstiden. Dersom det gjenstående arbeidet er av en slik art at boligen ikke kan tas i bruk til sitt formål, har du rett til å nekte overtakelse. Aldri overta en bolig uten at det foreligger midlertidig brukstillatelse eller ferdigattest.",
+        text: "Mange opplever overtakelsen som stressende. Det er mye som skjer på kort tid, og det er lett å bli ivrig etter å få nøklene. Men en grundig gjennomgang her sparer deg ofte for store bekymringer i ettertid.",
       },
-      {
-        type: "callout",
-        text: "Bustadoppføringsloven § 14: «Er arbeidet fullført, og forbrukaren har flytta inn i bustaden, er ytinga overteke sjølv om det ikkje er halde overtakingsforretning.»",
-      },
-      { type: "heading", text: "Steg 2: Selve overtakelsen – ditt våkneste øyeblikk" },
+      { type: "heading", text: "Forbered deg før befaringen" },
       {
         type: "paragraph",
-        text: "Dette er dagen hvor du må være systematisk, grundig og gjerne litt pirkete. Det er nå du har best mulighet til å påpeke feil som entreprenøren plikter å rette opp. En god overtakelse starter med gode forberedelser. Sørg for å ha følgende klart:",
+        text: "Les gjennom kontrakten og tilhørende dokumenter på forhånd, slik at du vet hva som faktisk er avtalt. Sammenlign det som er beskrevet med det du ser i boligen. Det er forskjell på en mangel og noe du bare hadde forventet annerledes – og den forskjellen avgjøres av hva som står i avtalen.",
       },
       {
         type: "list",
         items: [
-          "Kontrakt og leveransebeskrivelse: Dette er fasiten. Alt som står her skal være levert som avtalt.",
-          "FDV: Har du mottatt FDV for alt i boligen, og er dette lagt inn i boligmappen?",
-          "En fagkyndig medhjelper: Loven gir deg rett til å ha med deg en egen fagkyndig person, for eksempel en takstmann eller byggmester. Dette er en investering, ikke en kostnad – en ekspert ser detaljer du selv aldri ville oppdaget.",
-          "Nødvendig utstyr: Ta med lommelykt, en liten gjenstand for å teste stikkontakter (f.eks. en mobillader), laservater, og dokumentér gjerne funn med bilder.",
+          "Ta med kontrakt, leveransebeskrivelse og eventuelle tegninger.",
+          "Noter spørsmål og uklarheter i forkant.",
+          "Sett av god tid – ikke la deg stresse gjennom befaringen.",
+          "Ta bilder av alt du reagerer på.",
         ],
       },
-      { type: "heading", text: "Sjekklisten: Hva skal du se etter?" },
+      { type: "heading", text: "Hva du bør se etter" },
       {
         type: "paragraph",
-        text: "Gå systematisk gjennom boligen rom for rom. Ikke la deg stresse av entreprenøren – dette er din rett og din tid.",
-      },
-      {
-        type: "list",
-        items: [
-          "Overflater: Se etter hakk, riper eller ujevnheter på gulv, vegger og i tak. Sjekk for malingssøl, dårlig sparkling og skader på lister.",
-          "Vinduer og dører: Åpne og lukk alle vinduer og dører. Går de lett? Er det skader på karmer eller glass? Sjekk låser og håndtak.",
-          "Elektrisk anlegg: Test stikkontakter, lysbrytere og lyspunkter. Sjekk at det er nok kurser og at sikringsskapet er oversiktlig merket.",
-          "VVS og rørarbeid: Se etter synlige lekkasjer under vasker og på bad. Sjekk at vannet renner unna i sluk, og kontroller korrekt fall på baderomsgulvet ved å la vannet renne litt.",
-          "Ventilasjon: Sjekk at ventilasjonsanlegget fungerer og at avtrekk på kjøkken og bad suger luft.",
-          "Utvendige forhold: Sjekk fasade, balkong, trapper og fellesarealer der det er relevant.",
-        ],
+        text: "Gå systematisk gjennom rom for rom. Se etter avvik i utførelse, overflater som ikke er ferdigstilt, dører og vinduer som ikke fungerer som de skal, og tekniske installasjoner. Vær spesielt oppmerksom på våtrom, ventilasjon og det som er skjult bak overflater – det er her de kostbare feilene ofte ligger.",
       },
       {
         type: "callout",
-        text: "Proff-tips: Få opplæring i tekniske installasjoner som vannskadesensor, smarthusløsninger og ventilasjonsanlegg.",
+        text: "Alt du oppdager skal protokollføres i overtakelsesprotokollen. Et muntlig løfte om at «det fikser vi» er lite verdt hvis det ikke står skrevet ned.",
       },
-      { type: "heading", text: "Steg 3: Overtakelsesprotokollen – det juridiske beviset" },
+      { type: "heading", text: "Hvorfor ha med en fagperson?" },
       {
         type: "paragraph",
-        text: "Når befaringen er gjennomført, skal det skrives en overtakelsesprotokoll. Dette er det aller viktigste dokumentet fra dagen, og skal signeres av både deg og entreprenøren. Den bør som et minimum inneholde:",
-      },
-      {
-        type: "list",
-        items: [
-          "Dato og tidspunkt for overtakelsen.",
-          "Hvem som var til stede.",
-          "En liste over alle feil og mangler som ble avdekket. Vær så spesifikk som mulig (f.eks. «Ripe i parkett ved dør til soverom 2, ca. 10 cm lang»).",
-          "En frist for entreprenøren til å utbedre manglene.",
-          "Eventuelle merknader eller uenigheter.",
-          "Opplysning om eventuelt tilbakeholdt beløp i sluttoppgjøret.",
-        ],
-      },
-      { type: "heading", text: "Din rett til å tilbakeholde penger" },
-      {
-        type: "paragraph",
-        text: "Hvis det avdekkes mangler, gir bustadoppføringslova § 31 deg rett til å holde tilbake en del av kjøpesummen. Det tilbakeholdte beløpet skal stå i rimelig forhold til kostnadene ved å utbedre manglene, og er et svært effektivt pressmiddel for å sikre at entreprenøren faktisk retter opp feilene. Beløpet bør spesifiseres i protokollen.",
-      },
-      {
-        type: "callout",
-        text: "Viktig: Ikke signer på en protokoll hvor det står «ingen mangler funnet» dersom du har oppdaget feil.",
-      },
-      { type: "heading", text: "Etter overtakelsen: Hva nå?" },
-      {
-        type: "paragraph",
-        text: "Når protokollen er signert, er boligen din. Entreprenøren skal nå utbedre manglene innen den avtalte fristen. Når arbeidet er utført, bør det gjennomføres en ny, felles befaring for å bekrefte at alt er i orden før du utbetaler et eventuelt tilbakeholdt beløp.",
-      },
-      {
-        type: "paragraph",
-        text: "Husk at du også har reklamasjonsrettigheter etter overtakelsen. Du må reklamere «innen rimelig tid» etter at du oppdaget eller burde ha oppdaget en mangel. Den absolutte reklamasjonsfristen etter bustadoppføringsloven er fem år. Ved å sette deg inn i reglene og følge en strukturert prosess sikrer du ikke bare dine juridiske rettigheter, men også at gleden over din nye bolig blir langvarig og fri for kostbare overraskelser.",
+        text: "En uavhengig fagperson ser det du kanskje ikke ser, og vet hva som er god utførelse og hva som er avvik fra forskrift og avtale. Vi vurderer boligen nøkternt og uavhengig av utbygger, og hjelper deg å formulere mangler slik at de står seg i en eventuell dialog senere.",
       },
     ],
-    metaTitle: "Overtakelse av bolig – guide til bustadoppføringsloven",
+    metaTitle: "Overtakelse av ny bolig – sjekkliste og gode råd",
     metaDescription:
-      "Komplett guide til overtakelse av ny bolig etter bustadoppføringsloven: innkalling, befaring, sjekkliste, overtakelsesprotokoll og din rett til å holde tilbake penger.",
+      "Hva bør du sjekke ved overtakelse av ny bolig? Praktisk sjekkliste og råd om protokoll, mangler og hvorfor det lønner seg å ha en uavhengig fagperson med.",
     keywords: [
       "overtakelse ny bolig",
-      "bustadoppføringsloven",
       "overtakelsesprotokoll",
-      "overtakelsesbefaring",
-      "tilbakeholde penger mangler",
+      "sjekkliste overtakelse",
+      "mangler ny bolig",
+      "befaring overtakelse",
+    ],
+  },
+  {
+    slug: "gjennomgang-av-byggekontrakter",
+    title: "Byggekontrakter: les avtalen før du signerer",
+    excerpt:
+      "Mye av tryggheten i et byggeprosjekt avgjøres før første spadetak – i kontrakten. Her er det viktigste å forstå før du skriver under.",
+    cover: "/Fagbasen/byggelanskontroll-byggeldelse-byggela-n-1920w.webp",
+    date: "2026-06-12",
+    dateLabel: "12. juni 2026",
+    author: "Tommy Howden",
+    category: "Kontrakter",
+    body: [
+      {
+        type: "paragraph",
+        text: "En god kontrakt beskriver tydelig hva som skal leveres, til hvilken pris, når – og hva som skjer hvis noe går galt. En uklar kontrakt er ofte starten på en konflikt. Derfor er det verdt å bruke tid på avtalen før den signeres, ikke etterpå.",
+      },
+      { type: "heading", text: "Hvilket regelverk gjelder for avtalen?" },
+      {
+        type: "paragraph",
+        text: "Når en forbruker får oppført ny bolig eller fritidsbolig, gjelder ofte bustadoppføringslova. Ved andre håndverkertjenester på eksisterende bolig gjelder gjerne håndverkertjenesteloven. Hvilket regelverk som gjelder, påvirker blant annet rettighetene dine ved forsinkelse og mangler. Profesjonelle aktører bruker gjerne standardkontrakter, for eksempel NS-standardene.",
+      },
+      { type: "heading", text: "Se spesielt etter dette" },
+      {
+        type: "list",
+        items: [
+          "En tydelig og fullstendig beskrivelse av hva som inngår – og hva som ikke gjør det.",
+          "Pris, og hvordan eventuelle endringer og tillegg skal håndteres.",
+          "Fremdriftsplan og frister, med konsekvenser ved forsinkelse.",
+          "Hvordan betaling henger sammen med fremdrift.",
+          "Garantier, sikkerhetsstillelse og hva som gjelder ved mangler.",
+        ],
+      },
+      {
+        type: "callout",
+        text: "Et vanlig råd: ikke betal for mer enn det som faktisk er utført. Betalingsplanen skal følge fremdriften, ikke ligge foran den.",
+      },
+      { type: "heading", text: "Få et nøytralt blikk" },
+      {
+        type: "paragraph",
+        text: "Vi går gjennom kontrakten med deg og forklarer hva den faktisk innebærer – uten binding til motparten. Da kan du gjøre endringer og stille de riktige spørsmålene mens du fortsatt har forhandlingsrom.",
+      },
+    ],
+    metaTitle: "Gjennomgang av byggekontrakter – råd før du signerer",
+    metaDescription:
+      "Hva bør du se etter i en byggekontrakt? Råd om regelverk, betalingsplan, frister og mangler – og hvorfor en uavhengig gjennomgang lønner seg før signering.",
+    keywords: [
+      "byggekontrakt",
+      "gjennomgang kontrakt bolig",
+      "bustadoppføringslova",
+      "kontrakt håndverker",
+      "betalingsplan bygg",
+    ],
+  },
+  {
+    slug: "vatrom-vanlige-feil",
+    title: "Våtrom: de vanligste feilene – og hvordan du oppdager dem",
+    excerpt:
+      "Våtrom er blant det mest kritiske og feilutsatte i en bolig. Små feil i utførelsen kan gi store fuktskader. Her er det du bør være oppmerksom på.",
+    cover: "/Fagbasen/vatrom-membran-bad.png",
+    date: "2026-06-05",
+    dateLabel: "5. juni 2026",
+    author: "Tommy Howden",
+    category: "Våtrom",
+    body: [
+      {
+        type: "paragraph",
+        text: "Få steder i boligen er så utsatt for feil som våtrommet. Her stilles det høye krav til både materialer og utførelse, og konsekvensene av en feil kan være dyre fuktskader som først viser seg lenge etter at arbeidet er ferdig.",
+      },
+      { type: "heading", text: "Vanlige feil i våtrom" },
+      {
+        type: "list",
+        items: [
+          "Mangelfull eller feil utført membran bak fliser.",
+          "Fall mot sluk som ikke er riktig, slik at vannet blir stående.",
+          "Sluk som ikke er riktig tilpasset membranen.",
+          "Rør- og gjennomføringer som ikke er tettet skikkelig.",
+          "Ventilasjon som ikke fjerner fukt godt nok.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Mye av dette er skjult bak fliser og overflater når rommet er ferdig. Derfor er dokumentasjon underveis i byggeprosessen viktig – bilder av membran og sluk før flislegging kan være avgjørende dersom det senere oppstår tvil.",
+      },
+      { type: "heading", text: "Krav til fall og membran (preaksepterte ytelser)" },
+      {
+        type: "paragraph",
+        text: "Veiledningen til byggteknisk forskrift, TEK17 § 13-15, angir preaksepterte ytelser for våtrom. Det er løsninger som regnes for å oppfylle kravene; velger man andre løsninger, må de dokumenteres særskilt. Figuren under viser de preaksepterte løsningene for fall til sluk og membran:",
+      },
+      {
+        type: "image",
+        src: "/artikler/fall-tek17.png",
+        alt: "Preaksepterte ytelser for fall til sluk og membran i våtrom etter TEK17 § 13-15, med fall i og utenfor dusjsonen, nedsenket dusjgrube og membranoppkant.",
+        width: 2000,
+        height: 1414,
+        caption: "TEK17 § 13-15 – preaksepterte ytelser for våtrom og rom med vanninstallasjoner.",
+      },
+      {
+        type: "callout",
+        text: "For lite fall i dusjsonen er en av de hyppigste årsakene til at vann blir stående og fukt trekker inn der det ikke skal. Be alltid om dokumentasjon på våtromsarbeidet, og ta vare på den – den er gull verdt hvis du senere må reklamere eller selge boligen.",
+      },
+      { type: "heading", text: "Slik kan vi hjelpe" },
+      {
+        type: "paragraph",
+        text: "Vi kan kontrollere våtromsarbeidet underveis eller i etterkant, og vurdere utførelsen opp mot beskrivelse, produktanvisninger og god håndverksskikk. Du får en dokumentert vurdering du kan stole på – uavhengig av den som har bygget.",
+      },
+    ],
+    metaTitle: "Vanlige feil i våtrom – slik oppdager du dem",
+    metaDescription:
+      "De vanligste feilene i våtrom og hvordan du oppdager dem: membran, fall mot sluk, tetting og ventilasjon. Råd om dokumentasjon og uavhengig kontroll.",
+    keywords: [
+      "feil i våtrom",
+      "våtrom membran",
+      "fuktskade bad",
+      "våtromskontroll",
+      "fall til sluk",
+      "preaksepterte ytelser våtrom",
+      "TEK17 våtrom",
+    ],
+  },
+  {
+    slug: "legalisering-av-ulovlige-tiltak",
+    title: "Legalisering: når noe er bygget eller tatt i bruk uten godkjenning",
+    excerpt:
+      "Et innredet kjellerrom, en utleiedel eller et tilbygg uten godkjenning kan skape problemer ved salg. Slik går du frem for å få det lovlig.",
+    cover: "/Referanser/tomannsbolig-privatperson.webp",
+    date: "2026-05-28",
+    dateLabel: "28. mai 2026",
+    author: "Tommy Howden",
+    category: "Legalisering",
+    body: [
+      {
+        type: "paragraph",
+        text: "Mange boliger har rom eller tiltak som er bygget om eller tatt i bruk uten at det er omsøkt og godkjent. Et typisk eksempel er et kjellerrom som brukes som soverom eller utleiedel, men som ikke er godkjent for varig opphold. Det går ofte bra helt til boligen skal selges – da kan det bli et problem.",
+      },
+      { type: "heading", text: "Hvorfor det er viktig å rydde opp" },
+      {
+        type: "paragraph",
+        text: "Først og fremst handler det om sikkerhet. Rom som brukes til varig opphold – for eksempel soverom – må tilfredsstille krav til blant annet rømning og brannsikkerhet. Godkjenningen er ikke bare en formalitet; den skal sikre at du kommer trygt ut hvis det begynner å brenne.",
+      },
+      {
+        type: "paragraph",
+        text: "I tillegg skal arealer og bruk oppgis riktig ved salg. Rom som ikke er godkjent for varig opphold, kan ikke uten videre markedsføres som soverom eller stue. Avvik kan føre til reklamasjoner og redusert verdi – og i verste fall krav om tilbakeføring.",
+      },
+      { type: "heading", text: "Hva som ofte må på plass" },
+      {
+        type: "list",
+        items: [
+          "Søknad om bruksendring til kommunen.",
+          "Dokumentasjon på at rommet tilfredsstiller krav til blant annet rømning, dagslys og takhøyde.",
+          "Tegninger som viser faktisk utførelse.",
+          "Som regel ansvarlige foretak for søknad, prosjektering og utførelse – i noen tilfeller også kontroll.",
+        ],
+      },
+      {
+        type: "callout",
+        text: "Reglene og kravene varierer fra tiltak til tiltak – avhengig av byggeår og hvilken type endring som er gjort. En tidlig avklaring sparer deg ofte for både tid og kostnader.",
+      },
+      { type: "heading", text: "Vi hjelper deg gjennom prosessen" },
+      {
+        type: "paragraph",
+        text: "Vi har lang erfaring med legaliseringssaker og kjenner veien fra avvik til godkjent. Vi vurderer hva som skal til i din sak, dokumenterer faktisk tilstand og koordinerer fagfolkene som trengs:",
+      },
+      {
+        type: "list",
+        items: [
+          "Innhenting av brannprosjektering og øvrig prosjektering.",
+          "Ansvarlig søker.",
+          "Ansvarlig utførende.",
+          "Ansvarlig kontrollerende.",
+          "Dialog med kommunen gjennom hele saken.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "Vi kan også avklare om det er grunnlag for å rette krav mot tidligere eier, slik at du vet hvilke muligheter du har.",
+      },
+    ],
+    metaTitle: "Legalisering av ulovlige tiltak – bruksendring og godkjenning",
+    metaDescription:
+      "Har du et rom eller tiltak som er bygget eller tatt i bruk uten godkjenning? Slik går du frem med bruksendring og legalisering før salg. Råd fra byggfaglig rådgiver.",
+    keywords: [
+      "legalisering bolig",
+      "bruksendring kjeller",
+      "ulovlig tiltak bolig",
+      "godkjenne rom for varig opphold",
+      "søknad bruksendring",
     ],
   },
 ];
@@ -350,3 +293,4 @@ export function getPostSlugs(): string[] {
 
 /** Innlegg sortert nyeste først. */
 export const postsByDate = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+

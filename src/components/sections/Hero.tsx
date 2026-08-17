@@ -30,9 +30,13 @@ export function Hero() {
               {hero.title}
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-graphite-300 text-pretty">
-              {hero.subtitle}
-            </p>
+            <div className="mt-6 flex max-w-xl flex-col gap-4">
+              {hero.subtitle.map((paragraph) => (
+                <p key={paragraph} className="text-lg leading-relaxed text-graphite-300 text-pretty">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Button href="/kontakt" variant="accent" size="lg">
@@ -56,7 +60,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-graphite-800 pt-10 sm:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-graphite-800 pt-10 sm:grid-cols-3">
           {hero.trust.map((item) => (
             <TrustBadge key={item.label} label={item.label} detail={item.detail} />
           ))}

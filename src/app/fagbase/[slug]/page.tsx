@@ -67,7 +67,7 @@ export default async function PostPage({
               <li className="flex items-center gap-2">
                 <span aria-hidden>/</span>
                 <Link href="/fagbase" className="hover:text-bone">
-                  Fagbase
+                  Artikler
                 </Link>
               </li>
             </ol>

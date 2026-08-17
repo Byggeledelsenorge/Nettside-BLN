@@ -18,7 +18,7 @@ export default function KontaktPage() {
       <PageHero
         kicker="Kontakt"
         title="Trenger du byggfaglig bistand?"
-        intro="Fortell oss kort om situasjonen din, så tar vi kontakt med en ærlig vurdering av hvordan vi kan hjelpe. Det koster ingenting å ta den første samtalen."
+        intro="Fortell oss kort om situasjonen din, så tar vi kontakt med en ærlig vurdering av hvordan vi kan hjelpe. Vi tilbyr alltid en uforpliktende samtale før oppstart."
         breadcrumbs={[
           { label: "Forsiden", href: "/" },
           { label: "Kontakt", href: "/kontakt" },

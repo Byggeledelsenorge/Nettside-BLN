@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/private",
     "/bedrift",
     "/referanser",
+    "/slik-har-vi-bistatt-andre",
+    "/priser",
     "/fagbase",
     "/om-oss",
     "/kontakt",

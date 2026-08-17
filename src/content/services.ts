@@ -40,11 +40,11 @@ export const services: Service[] = [
     audience: "privat",
     title: "Reklamasjoner og tvister med entreprenør",
     shortTitle: "Reklamasjon og tvist",
-    tagline: "Få en fagperson på din side i saken mot håndverkeren.",
+    tagline: "Få en fagperson på din side.",
     summary:
       "Står du i en konflikt med entreprenør eller håndverker? Vi dokumenterer feilene faglig, vurderer kravene dine opp mot kontrakt og standard, og gir deg et grunnlag som holder – enten saken løses i dialog eller går videre.",
     intro:
-      "En tvist med håndverkeren er sjelden en kamp om hvem som roper høyest. Den avgjøres av dokumentasjon: hva som faktisk er avtalt, hva som er levert, og om arbeidet holder faglig mål. Vi gir deg den dokumentasjonen – nøkternt, etterprøvbart og uavhengig.",
+      "En tvist med håndverkeren er sjelden en kamp om hvem som roper høyest. Den avgjøres av dokumentasjon: hva som faktisk er avtalt, hva som er levert, og om arbeidet holder faglig mål. Vi gir deg den dokumentasjonen – oversiktlig, etterprøvbart og uavhengig.",
     deliverables: [
       {
         heading: "Faglig vurdering av arbeidet",
@@ -56,7 +56,7 @@ export const services: Service[] = [
       },
       {
         heading: "Dokumentasjon som holder",
-        body: "Du får en skriftlig rapport du kan bruke i dialog med motparten, overfor forsikring, i Håndverkerklagenemnda eller som grunnlag for advokat dersom saken går videre.",
+        body: "Du får en skriftlig rapport vi kan bruke i dialog med motparten, overfor forsikring eller som grunnlag for advokat dersom saken går videre.",
       },
     ],
     whenRelevant: [
@@ -165,9 +165,9 @@ export const services: Service[] = [
     shortTitle: "Overtakelse av bolig",
     tagline: "Ha en fagperson med deg når du overtar boligen.",
     summary:
-      "Overtakelsen er din siste sjanse til å få feil og mangler protokollført før ansvaret går over på deg. Vi blir med på befaringen, ser det utrente øyne ikke ser, og sørger for at avvik kommer skriftlig inn i protokollen.",
+      "Vi setter oss inn i dokumenter og leveransebeskrivelser slik at du får levert det du har rett på – og får feil og mangler protokollført før ansvaret går over på deg. Vi blir med på befaringen, ser det utrente øyne ikke ser, og sørger for at avvik kommer skriftlig inn i protokollen.",
     intro:
-      "Når du overtar en ny bolig eller et nyoppusset prosjekt, skifter ansvaret hender. Det som ikke protokollføres ved overtakelse, blir fort din sak å rydde opp i. Vi blir med, vurderer arbeidet med fagøyne og hjelper deg å protokollføre det som skal protokollføres.",
+      "Når du overtar en ny bolig eller et nyoppusset prosjekt, skifter ansvaret hender. Vi gjenomgår underlag og kontrakt før overtakelse, vurderer arbeidet med fagøyne og hjelper deg å ivareta dine rettigheter.",
     deliverables: [
       {
         heading: "Befaring sammen med deg",
@@ -202,8 +202,8 @@ export const services: Service[] = [
   {
     slug: "byggfaglig-radgivning-nybygg",
     audience: "privat",
-    title: "Byggfaglig rådgivning ved nybygg og prosjekt",
-    shortTitle: "Rådgivning ved nybygg",
+    title: "Byggfaglig rådgivning ved nybygg og rehabilitering",
+    shortTitle: "Rådgivning ved nybygg og rehabilitering",
     tagline: "Riktige valg fra start sparer deg for dyre feil senere.",
     summary:
       "Skal du bygge nytt, bygge på eller pusse opp? Vi er rådgiveren på din side gjennom prosjektet – fra kontrakt og tilbud til løsninger og oppfølging – slik at du tar informerte valg og unngår fallgruvene.",
@@ -243,42 +243,47 @@ export const services: Service[] = [
   {
     slug: "vurdering-av-utfort-arbeid",
     audience: "privat",
-    title: "Vurdering av kvalitet på utført arbeid",
-    shortTitle: "Vurdering av arbeid",
-    tagline: "Et nøytralt svar på om jobben er god nok.",
+    title: "Legalisering av boenheter",
+    shortTitle: "Legalisering av boenheter",
+    tagline: "Kartlegging, juridisk samhandling og utbedring.",
     summary:
-      "Er du i tvil om arbeidet holder mål? Vi gir en uavhengig vurdering av kvaliteten opp mot det som er avtalt og det faget krever, slik at du vet om du skal godta, klage eller kreve utbedring.",
+      "Oppdaget at godkjente tegninger i kommunen ikke stemmer med dagens planløsning? Vi bistår med kartlegging av avvik, samhandling med juridisk for å sjekke om du kan ha et krav mot megler eller selger, og videre med utbedring av bygget.",
     intro:
-      "Noen ganger trenger du rett og slett et nøytralt svar: er dette godt nok? Vi vurderer kvaliteten på det utførte arbeidet objektivt, uten interesse i utfallet, og gir deg et tydelig grunnlag for hva du bør gjøre videre.",
+      "Når planløsningen din ikke stemmer med det kommunen har godkjent, oppstår det ofte usikkerhet rundt lovlighet, ansvar og hvilke steg som er riktige. Vi kartlegger avvikene byggfaglig, lager dokumentasjon til juridisk vurdering, og hjelper deg å komme frem til en lovlig og robust løsning – gjerne i samhandling med juridisk rådgiver.",
     deliverables: [
       {
-        heading: "Objektiv kvalitetsvurdering",
-        body: "Vi vurderer arbeidet opp mot kontrakt, beskrivelse og god håndverksskikk – nøkternt og uten å overdrive i noen retning.",
+        heading: "Kartlegging av avvik fra godkjente tegninger",
+        body: "Vi dokumenterer hva som faktisk er utført i forhold til kommunens godkjente tegninger og planløsning, slik at du forstår omfanget og konsekvensene i praksis.",
       },
       {
-        heading: "Tydelig konklusjon",
-        body: "Du får en klar vurdering av om arbeidet er godt nok, og hva som eventuelt ikke holder mål.",
+        heading: "Faglig dokumentasjon for juridisk vurdering",
+        body: "Du får en ryddig, etterprøvbar oppsummering som kan deles med juridisk rådgiver for å vurdere mulige krav mot megler eller selger.",
       },
       {
-        heading: "Anbefaling om veien videre",
-        body: "Vi anbefaler hva som er fornuftig å gjøre – om du bør godta, be om utbedring eller gå videre med en reklamasjon.",
+        heading: "Samhandling med juridisk for å avklare ansvar og rettigheter",
+        body: "Vi koordinerer avklaringer slik at spørsmål knyttet til ansvar, frister og prosess håndteres på riktig grunnlag.",
+      },
+      {
+        heading: "Utbedring og vei mot legalisering/bruksendring",
+        body: "Vi bidrar med teknisk bistand til nødvendig utbedring, og følger opp at dokumentasjonen som trengs for en lovlig løsning blir etablert.",
       },
     ],
     whenRelevant: [
-      "Du er usikker på om arbeidet er godt utført",
-      "Håndverkeren og du er uenige om kvaliteten",
-      "Du vil ha en nøytral vurdering før du betaler",
-      "Du vurderer å klage, men vil vite om du har en sak",
+      "Du oppdager at godkjente tegninger ikke stemmer med dagens planløsning",
+      "Du vurderer krav mot megler eller selger",
+      "Du trenger hjelp med legalisering/bruksendring gjennom riktig prosess",
+      "Du ønsker en tryggere vei videre før du selger eller tar i bruk boenheten",
     ],
-    metaTitle: "Vurdering av utført arbeid – uavhengig kvalitetsvurdering",
+    metaTitle: "Legalisering av boenheter – avvik fra godkjente tegninger",
     metaDescription:
-      "Usikker på om håndverkerarbeidet holder mål? Vi gir en uavhengig vurdering av kvaliteten opp mot avtale og fagkrav. Byggeledelse Norge, Ålesund og Sunnmøre.",
+      "Oppdaget at godkjente tegninger i kommunen ikke stemmer med dagens planløsning? Vi kartlegger avvik, samhandler med juridisk for å vurdere krav mot megler eller selger, og hjelper med utbedring og lovlig løsning. Byggeledelse Norge.",
     keywords: [
-      "vurdering utført arbeid",
-      "kvalitet håndverkerarbeid",
-      "er arbeidet godt nok",
-      "nøytral vurdering håndverker",
-      "byggfaglig vurdering",
+      "legalisering boenheter",
+      "bruksendring",
+      "avvik godkjente tegninger",
+      "krav mot megler",
+      "krav mot selger",
+      "byggfaglig dokumentasjon",
     ],
   },
 
@@ -463,8 +468,8 @@ export const services: Service[] = [
   {
     slug: "oppfolging-av-entrepriser",
     audience: "bedrift",
-    title: "Oppfølging av entrepriser",
-    shortTitle: "Oppfølging av entrepriser",
+    title: "Tvisteløsning i entrepriser",
+    shortTitle: "Tvisteløsning i entrepriser",
     tagline: "Kontroll på leveransene fra hver enkelt entreprenør.",
     summary:
       "Vi følger opp entreprenørene mot kontrakt og beskrivelse, koordinerer grensesnitt og sikrer at hver entreprise leverer det den skal – i riktig kvalitet og til rett tid.",

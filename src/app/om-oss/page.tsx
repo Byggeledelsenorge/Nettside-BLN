@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { CtaSection } from "@/components/sections/CtaSection";
@@ -29,17 +28,62 @@ export default function OmOssPage() {
       <section className="bg-bone py-20 sm:py-28">
         <Container size="narrow">
           <div className="space-y-6 text-lg leading-relaxed text-graphite-700">
+            <h2 className="text-2xl font-semibold tracking-tight text-graphite-900">
+              Byggfaglig bistand når det er viktig å ha oversikt
+            </h2>
             <p>
-              De fleste som tar kontakt med oss står i en vanskelig situasjon. Et
-              byggeprosjekt har gått galt, en håndverker leverer ikke det som var avtalt,
-              eller en bolig viser feil som ingen vil ta ansvar for. Da trenger man ikke en
-              part til – man trenger noen som er på sin side, og som kan faget.
+              Byggeledelse Norge har bistått kunder i bygg- og eiendomsprosjekter siden
+              2004. I dag hjelper vi private, sameier, advokater og profesjonelle aktører
+              før, under og etter bygging og rehabilitering.
             </p>
             <p>
-              Vår rolle er enkel å beskrive: vi vurderer det byggfaglige nøkternt og
-              uavhengig, og gir deg dokumentasjon og råd du kan stole på. Vi selger ikke
-              utbedring, og vi har ingen binding til entreprenørene vi vurderer. Det er
-              nettopp derfor vurderingene våre er verdt noe.
+              Vi bidrar når tilbud skal innhentes og vurderes, kontrakter skal gjennomgås,
+              et prosjekt skal følges opp eller forhold må avklares ved overtakelse,
+              reklamasjon og konflikt. Målet er det samme i alle saker: å gi kunden et
+              ryddig, faglig og praktisk grunnlag for gode beslutninger.
+            </p>
+            <p>
+              Vi kombinerer erfaring fra byggeledelse, prosjektoppfølging, kontroll, takst
+              og byggfaglige undersøkelser. Det gjør at vi kan se saken både fra prosjektets
+              start og når noe senere ikke er utført som avtalt.
+            </p>
+
+            <h2 className="pt-4 text-2xl font-semibold tracking-tight text-graphite-900">
+              Uavhengighet i praksis
+            </h2>
+            <p>
+              En byggesak kan raskt bli krevende når det oppstår uenighet om kvalitet,
+              ansvar, kostnad eller hva som faktisk er avtalt. Da er det viktig at den
+              byggfaglige vurderingen er tydelig, etterprøvbar og uavhengig.
+            </p>
+            <p>
+              Vi vurderer alltid habilitet før vi tar på oss et oppdrag. Vi arbeider ikke
+              for begge sider i samme sak, og er åpne om forhold som kan være relevante for
+              kundens vurdering av vår rolle.
+            </p>
+            <p>
+              Vår oppgave er ikke å skape konflikt. Den er å undersøke, dokumentere og
+              forklare byggfaglige forhold på en måte som gir kunden et bedre grunnlag for å
+              komme videre.
+            </p>
+
+            <h2 className="pt-4 text-2xl font-semibold tracking-tight text-graphite-900">
+              Fra første valg til ferdig sak
+            </h2>
+            <p>
+              Noen kontakter oss før arbeidet starter. Andre trenger hjelp mens prosjektet
+              pågår, ved overtakelse eller når det har oppstått feil, mangler eller
+              uenighet.
+            </p>
+            <p>
+              Vi kan bidra gjennom hele løpet – fra vurdering av tilbud og kontrakter, til
+              prosjektoppfølging, kontroll, befaring, dokumentasjon og faglig bistand i
+              reklamasjons- eller tvistesaker.
+            </p>
+            <p>
+              Arbeidet tilpasses alltid den konkrete situasjonen. Noen trenger en avgrenset
+              befaring og et klart råd. Andre trenger en grundigere teknisk vurdering,
+              dokumentgjennomgang eller bistand over tid.
             </p>
           </div>
 
@@ -63,49 +107,6 @@ export default function OmOssPage() {
               </dd>
             </div>
           </dl>
-          <p className="mt-4 text-sm text-graphite-500">{site.approvalText}</p>
-        </Container>
-      </section>
-
-      <section className="border-t border-graphite-200 bg-mist py-20 sm:py-28">
-        <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-[auto_1fr] lg:gap-16">
-            <div className="relative w-full max-w-56">
-              <div className="absolute -left-3 -top-3 h-full w-full border border-copper-500/40" aria-hidden />
-              <Image
-                src={site.contactPerson.photo}
-                alt={`${site.contactPerson.name}, ${site.contactPerson.role} i ${site.legalName}`}
-                width={960}
-                height={960}
-                className="relative aspect-square w-full object-cover grayscale-[15%] rounded-sm"
-              />
-            </div>
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
-                {site.contactPerson.role}
-              </span>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-graphite-900 sm:text-4xl">
-                {site.contactPerson.name}
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-graphite-700">
-                Tommy leder Byggeledelse Norge og har mange års erfaring fra byggfag,
-                prosjektledelse og uavhengig kontroll. Han og teamet står på boligeierens
-                side når noe er galt, og er en trygg faglig ressurs for byggherrer og
-                advokater som trenger uavhengig byggteknisk kompetanse.
-              </p>
-              <div className="mt-6 space-y-1 text-graphite-800">
-                <a href={site.contactPerson.phoneHref} className="block hover:text-copper-700">
-                  {site.contactPerson.phone}
-                </a>
-                <a
-                  href={`mailto:${site.contactPerson.email}`}
-                  className="block hover:text-copper-700"
-                >
-                  {site.contactPerson.email}
-                </a>
-              </div>
-            </div>
-          </div>
         </Container>
       </section>
 

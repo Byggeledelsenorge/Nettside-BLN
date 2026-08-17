@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { site, CTA_LABEL } from "@/content/site";
+import { site } from "@/content/site";
 import { privateServices, businessServices } from "@/content/services";
-import { Button } from "@/components/ui/Button";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -10,27 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-graphite-950 text-graphite-300">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
-        <div className="flex flex-col gap-10 border-b border-graphite-800 pb-12 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-bone sm:text-3xl">
-              {CTA_LABEL}
-            </h2>
-            <p className="mt-3 text-graphite-400">
-              Fortell oss kort om situasjonen, så gir vi deg en ærlig vurdering av hvordan
-              vi kan hjelpe.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-4">
-            <Button href="/kontakt" variant="accent" size="lg">
-              Ta kontakt
-            </Button>
-            <Button href={site.phoneHref} variant="outlineLight" size="lg">
-              Ring {site.phone}
-            </Button>
-          </div>
-        </div>
-
-        <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 border-b border-graphite-800 pb-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Image
               src="/logo.png"
@@ -44,13 +23,13 @@ export function Footer() {
             </p>
             <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm">
               <li>
-                <Link href="/referanser" className="hover:text-bone">
-                  Referanser
+                <Link href="/slik-har-vi-bistatt-andre" className="hover:text-bone">
+                  Slik har vi bistått andre
                 </Link>
               </li>
               <li>
                 <Link href="/fagbase" className="hover:text-bone">
-                  Fagbase
+                  Artikler
                 </Link>
               </li>
               <li>

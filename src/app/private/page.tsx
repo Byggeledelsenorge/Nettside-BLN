@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { ServiceCard } from "@/components/ui/ServiceCard";
+import { Button } from "@/components/ui/Button";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { Process } from "@/components/sections/Process";
 import { privateServices } from "@/content/services";
@@ -40,6 +41,20 @@ export default function PrivatePage() {
             {privateServices.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
+          </div>
+          <div className="mt-10">
+            <Button href="/slik-har-vi-bistatt-andre" variant="accent" size="md" className="group">
+              Slik har vi bistått andre
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                className="transition-transform group-hover:translate-x-1"
+              >
+                <path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" />
+              </svg>
+            </Button>
           </div>
         </Container>
       </section>

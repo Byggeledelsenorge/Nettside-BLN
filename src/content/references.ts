@@ -60,36 +60,6 @@ export const references: Reference[] = [
     ],
   },
   {
-    slug: "tomannsbolig-privatperson",
-    title: "Tomannsbolig for privatperson",
-    cover: "/Referanser/tomannsbolig-privatperson.webp",
-    category: "Privatbolig",
-    role: "Rådgiver og kontroll",
-    location: "Sunnmøre",
-    summary:
-      "Faglig bistand med kontrakt, leveransebeskrivelse, overtakelse og ettårskontroll for en privat byggherre.",
-    testimonial: true,
-    body: [
-      "Vi søkte assistanse av Byggeledelse Norge fordi vi ville ha noen med faglig kompetanse på vår side som kunne sjekke at vår leverandør faktisk leverte det vi har krav på. Byggeledelse Norge hjalp oss med kontrakt, leveransebeskrivelse, overtakelse og ettårskontroll.",
-      "De påpekte noen punkter som ikke var riktig utført og fikk dem rettet før vi flyttet inn. De bidro til at prosessen ble mye enklere og tryggere for oss. Vi anbefaler at man tar en samtale med fagfolk før man skal bygge bolig selv eller kjøper seg inn i et prosjekt.",
-    ],
-  },
-  {
-    slug: "mindre-leilighetsbygg-privatperson",
-    title: "Mindre leilighetsbygg for privatperson",
-    cover: "/Referanser/mindre-leilighetsbygg.webp",
-    category: "Privatbolig",
-    role: "Total byggeledelse",
-    location: "Sunnmøre",
-    summary:
-      "Total byggeledelse fra tegnebrettet til ferdigstillelse av en bolig med tre leiligheter.",
-    testimonial: true,
-    body: [
-      "Jeg engasjerte Byggeledelse Norge for total byggeledelse på et prosjekt der jeg skulle bygge en bolig med tre leiligheter. De bidro fra tegnebrettet til ferdigstillelse, og det sparte meg for mye hodebry. De brukte sitt nettverk til å innhente gode priser fra leverandører som leverte arbeid jeg ble svært fornøyd med.",
-      "Det var veldig nyttig at jeg hadde noen med kompetanse i faget som tok vare på mine interesser i forhandlinger og dialog med leverandører. Ved at de regelmessig besøkte prosjektet kunne de veilede underleverandører slik at arbeidet ble utført som vi ønsket det, og feil ble ryddet opp i med en gang. Du burde ta en prat med en byggeleder før du går i gang med et eget prosjekt.",
-    ],
-  },
-  {
     slug: "naeringsbygg-olsvika",
     title: "Næringsbygg – Olsvika",
     cover: "/Referanser/naeringsbygg-olsvika.webp",

@@ -13,7 +13,7 @@ export const site = {
   phoneHref: "tel:+4770153100",
   email: "post@byggeledelsenorge.no",
   orgNumber: "987 487 798",
-  serviceArea: "Ålesund og Sunnmøre",
+  serviceArea: "Primært Sunnmøre, men påtar oss oppdrag over hele landet",
   address: {
     street: "Langelandsvegen 35",
     postalCode: "6010",
@@ -52,25 +52,25 @@ export const site = {
   nav: [
     { label: "Tjenester", href: "/private" },
     { label: "Bedrift", href: "/bedrift" },
-    { label: "Referanser", href: "/referanser" },
-    { label: "Fagbase", href: "/fagbase" },
+    { label: "Artikler", href: "/fagbase" },
     { label: "Om oss", href: "/om-oss" },
+    { label: "Priser", href: "/priser" },
     { label: "Kontakt", href: "/kontakt" },
   ],
 } as const;
 
 export const hero = {
-  kicker: "Uavhengig byggfaglig rådgiver i Ålesund",
+  kicker: "Uavhengig byggfaglig rådgiver",
   // Problemorientert, privat-fokusert hovedoverskrift
-  title: "Når noe er galt med boligen, trenger du noen på din side.",
-  subtitle:
-    "Byggeledelse Norge er den uavhengige byggfaglige rådgiveren du ringer ved reklamasjon, byggfeil, konflikt med håndverker og overtakelse. Vi står på boligeierens side i Ålesund og på Sunnmøre – helt uavhengig av entreprenør og utbygger.",
+  title: "Uavhengig byggfaglig hjelp når noe skal bygges – eller har gått galt.",
+  subtitle: [
+    "Vi bistår boligeiere med reklamasjoner, byggfeil, overtakelse, rehabilitering, prosjektledelse og uavhengig kontroll, m.m.",
+  ],
   // Trust-elementer basert på reelle godkjenninger
   trust: [
-    { label: "Helt uavhengig", detail: "Ingen binding til entreprenør eller utbygger" },
-    { label: "Sentralt godkjent", detail: "Ansvarsrett etter plan- og bygningsloven" },
-    { label: "Uavhengig kontroll", detail: "Tiltaksklasse 1 – våtrom og lufttetthet" },
-    { label: "Lokalt forankret", detail: "Ålesund og Sunnmøre" },
+    { label: "Helt uavhengig", detail: "Ingen økonomisk binding til entreprenør, prosjekterende eller utbygger" },
+    { label: "Uavhengig kontroll", detail: "Sentral godkjenning – våtrom og lufttetthet" },
+    { label: "Lokalt forankret", detail: "Primært Sunnmøre, men påtar oss oppdrag over hele landet" },
   ],
 };
 
@@ -79,15 +79,15 @@ export const problemMirror = {
   kicker: "Har du et problem med boligen?",
   title: "Du kjenner deg kanskje igjen i én av disse.",
   intro:
-    "De fleste som kontakter oss står midt i noe vanskelig. Du trenger ikke ha oversikt over fag og regler – det er vår jobb. Her er situasjonene vi hjelper boligeiere med hver uke.",
+    "De som kontakter oss står midt i noe vanskelig eller skal i gang med et prosjekt. Du trenger ikke ha oversikt over fag og regler – det er vår jobb. Her er noen av situasjonene vi kan hjelpe med.",
   items: [
     {
       title: "Konflikt med håndverkeren",
-      body: "Dere er uenige om hva som er avtalt eller om jobben er god nok. Du trenger en fagperson som kan dokumentere hva som faktisk er feil.",
+      body: "Uenigheter om kontrakt, faktura, fremdrift eller kvalitet, og du vet ikke hva du skal gjøre videre.",
     },
     {
-      title: "Mangler etter oppussing",
-      body: "Resultatet ble ikke som lovet. Vi finner ut hva som er feil, hvor alvorlig det er, og hva du har krav på.",
+      title: "Du skal i gang med større renoveringsprosjekt",
+      body: "Du er usikker på prosessen og har ikke kompetansen til å følge opp leveransene.",
     },
     {
       title: "Fukt eller byggskade",
@@ -95,10 +95,10 @@ export const problemMirror = {
     },
     {
       title: "Overtakelse av ny bolig",
-      body: "Du skal overta og er redd for å overse noe. Vi blir med og sikrer at mangler kommer inn i protokollen.",
+      body: "Du skal overta og er redd for å overse noe. Vi blir med og ivaretar dine rettigheter.",
     },
     {
-      title: "Uenig om kvaliteten",
+      title: "Endringer uten godkjenning",
       body: "Du er usikker på om arbeidet holder mål. Vi gir en nøytral vurdering opp mot avtale og fagkrav.",
     },
     {
@@ -145,7 +145,7 @@ export const whyUs = {
   items: [
     {
       title: "Uavhengighet",
-      body: "Vi selger ikke utbedring og har ingen binding til entreprenører. Vurderingen vår styres av faget – ikke av hva noen tjener på utfallet.",
+      body: "Vi har ingen økonomisk binding til entreprenører, prosjekterende eller utbyggere. Vurderingen vår styres av faget – ikke av hva noen tjener på utfallet.",
     },
     {
       title: "Byggfaglig tyngde",
@@ -166,7 +166,7 @@ export const whyUs = {
 export const finalCta = {
   kicker: "Vi er på din side",
   title: "Trenger du byggfaglig bistand?",
-  body: "Fortell oss kort om situasjonen, så gir vi deg en ærlig vurdering av hvordan vi kan hjelpe. Det koster ingenting å ta den første samtalen.",
+  body: "Fortell oss kort om situasjonen, så gir vi deg en ærlig vurdering av hvordan vi kan hjelpe. Vi tilbyr alltid en uforpliktende samtale før oppstart.",
   primaryLabel: "Ta kontakt nå",
   secondaryLabel: "Ring oss",
 };
@@ -212,7 +212,7 @@ export const lawyerSection = {
     },
     {
       title: "Byggfaglig støtte gjennom saken",
-      body: "Vi er sparringspartner for advokaten på det tekniske, og kan bistå frem mot og under en eventuell rettslig prosess.",
+      body: "Vi er sparringspartner for advokater på det byggetekniske, og kan bistå frem mot og under en eventuell rettslig prosess.",
     },
   ],
 };

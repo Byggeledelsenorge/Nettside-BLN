@@ -9,7 +9,7 @@ import { postsByDate } from "@/content/posts";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Fagbase – kunnskap om bygg, bolig og byggeledelse",
+  title: "Artikler – kunnskap om bygg, bolig og byggeledelse",
   description:
     "Artikler og guider fra Byggeledelse Norge om overtakelse, reklamasjon, byggelån, energirådgivning og byggeledelse – skrevet av en uavhengig byggfaglig rådgiver i Ålesund.",
   path: "/fagbase",
@@ -27,12 +27,12 @@ export default function FagbasePage() {
   return (
     <>
       <PageHero
-        kicker="Fagbase"
+        kicker="Artikler"
         title="Kunnskap om bygg, bolig og dine rettigheter."
         intro="Praktiske guider og innsikt fra en uavhengig byggfaglig rådgiver. Vi deler det vi kan om overtakelse, reklamasjon, byggeledelse og hvordan du unngår kostbare feil."
         breadcrumbs={[
           { label: "Forsiden", href: "/" },
-          { label: "Fagbase", href: "/fagbase" },
+          { label: "Artikler", href: "/fagbase" },
         ]}
       />
 

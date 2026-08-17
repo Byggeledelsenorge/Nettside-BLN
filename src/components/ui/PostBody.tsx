@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { PostBlock } from "@/content/posts";
 
 /** Renderer for det strukturerte artikkelinnholdet i en fagartikkel. */
@@ -40,6 +41,26 @@ export function PostBody({ blocks }: { blocks: PostBlock[] }) {
               >
                 {block.text}
               </p>
+            );
+          case "image":
+            return (
+              <figure key={i} className="my-4">
+                <div className="overflow-hidden border border-graphite-200 bg-white rounded-sm">
+                  <Image
+                    src={block.src}
+                    alt={block.alt}
+                    width={block.width}
+                    height={block.height}
+                    sizes="(min-width: 1024px) 720px, 92vw"
+                    className="h-auto w-full"
+                  />
+                </div>
+                {block.caption && (
+                  <figcaption className="mt-3 text-sm leading-relaxed text-graphite-500">
+                    {block.caption}
+                  </figcaption>
+                )}
+              </figure>
             );
           default:
             return null;

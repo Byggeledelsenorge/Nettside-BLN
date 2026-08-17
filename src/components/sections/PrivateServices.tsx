@@ -7,7 +7,7 @@ import { privateSection } from "@/content/site";
 
 export function PrivateServices() {
   return (
-    <section id="private" className="scroll-mt-20 bg-bone py-20 sm:py-28">
+    <section id="private" className="scroll-mt-20 bg-mist py-20 sm:py-28">
       <Container>
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
@@ -24,6 +24,21 @@ export function PrivateServices() {
           {privateServices.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
+        </div>
+
+        <div className="mt-10">
+          <Button href="/slik-har-vi-bistatt-andre" variant="accent" size="md" className="group">
+            Slik har vi bistått andre
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              className="transition-transform group-hover:translate-x-1"
+            >
+              <path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" />
+            </svg>
+          </Button>
         </div>
       </Container>
     </section>

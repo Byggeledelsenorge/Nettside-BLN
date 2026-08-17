@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { LawyerSection } from "@/components/sections/LawyerSection";
@@ -78,6 +79,20 @@ export default function BedriftPage() {
                 </span>
               </Link>
             ))}
+          </div>
+          <div className="mt-10">
+            <Button href="/referanser" variant="accent" size="md" className="group">
+              Se referanseprosjekter
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                className="transition-transform group-hover:translate-x-1"
+              >
+                <path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" />
+              </svg>
+            </Button>
           </div>
         </Container>
       </section>
