@@ -113,8 +113,7 @@ export default async function PostPage({
                 Trenger du byggfaglig bistand?
               </h2>
               <p className="mt-3 max-w-xl text-graphite-300">
-                Fortell oss kort om situasjonen din, så gir vi deg en ærlig, uforpliktende
-                vurdering av hvordan vi kan hjelpe.
+                Fortell oss kort om saken, så gir vi deg en uforpliktende vurdering.
               </p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <Button href="/kontakt" variant="accent" size="md">

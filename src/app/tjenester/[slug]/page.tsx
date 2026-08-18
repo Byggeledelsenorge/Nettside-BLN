@@ -95,7 +95,7 @@ export default async function ServicePage({
                   Trenger du byggfaglig bistand?
                 </h2>
                 <p className="mt-3 text-graphite-300">
-                  Fortell oss kort om saken, så gir vi deg en ærlig vurdering.
+                  Fortell oss kort om saken, så gir vi deg en uforpliktende vurdering.
                 </p>
                 <Button href="/kontakt" variant="accent" size="md" className="mt-5 w-full">
                   Ta kontakt
