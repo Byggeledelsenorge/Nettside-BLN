@@ -19,16 +19,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} – Uavhengig byggfaglig rådgiver`,
+    default: `${site.name} | Uavhengig byggfaglig rådgiver`,
     template: `%s | ${site.name}`,
   },
   description:
-    "Uavhengig byggfaglig rådgiver i Ålesund og på Sunnmøre. Vi hjelper boligeiere med reklamasjoner, byggfeil, uavhengig kontroll og overtakelse – og tilbyr byggeledelse og sakkyndig bistand for bedrifter og advokater.",
+    "Byggeledelse Norge er en uavhengig byggfaglig rådgiver i Ålesund. Vi bistår med byggfeil, reklamasjoner, overtakelse, rehabilitering, prosjektledelse og uavhengig kontroll.",
   openGraph: {
     type: "website",
     locale: "nb_NO",
     siteName: site.name,
     url: site.url,
+    title: `${site.name} | Uavhengig byggfaglig rådgiver`,
+    description:
+      "Byggeledelse Norge er en uavhengig byggfaglig rådgiver i Ålesund. Vi bistår med byggfeil, reklamasjoner, overtakelse, rehabilitering, prosjektledelse og uavhengig kontroll.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: site.name }],
   },
   alternates: { canonical: site.url },

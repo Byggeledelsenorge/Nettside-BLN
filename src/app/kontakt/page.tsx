@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Kontakt – trenger du byggfaglig bistand?",
   description:
-    "Ta kontakt med Byggeledelse Norge for uavhengig byggfaglig bistand. Beskriv situasjonen, så gir vi deg en ærlig vurdering av hvordan vi kan hjelpe.",
+    "Ta kontakt med Byggeledelse Norge for uavhengig byggfaglig bistand. Fortell oss kort om saken, så gir vi deg en uforpliktende vurdering.",
   path: "/kontakt",
 });
 

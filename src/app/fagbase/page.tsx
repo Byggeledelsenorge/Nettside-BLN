@@ -11,13 +11,14 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Artikler – kunnskap om bygg, bolig og byggeledelse",
   description:
-    "Artikler og guider fra Byggeledelse Norge om overtakelse, reklamasjon, byggelån, energirådgivning og byggeledelse – skrevet av en uavhengig byggfaglig rådgiver i Ålesund.",
+    "Artikler og guider fra Byggeledelse Norge om overtakelse, byggekontrakter, våtrom, legalisering og byggfaglige problemstillinger – skrevet av en uavhengig byggfaglig rådgiver i Ålesund.",
   path: "/fagbase",
   keywords: [
     "byggfaglig kunnskap",
     "overtakelse bolig guide",
-    "byggelånskontroll",
-    "energirådgivning Ålesund",
+    "byggekontrakt bolig",
+    "våtrom feil",
+    "legalisering bolig",
   ],
 });
 
