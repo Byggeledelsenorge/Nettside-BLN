@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { organizationJsonLd } from "@/lib/seo";
 import { site } from "@/content/site";
 import { Analytics } from "@vercel/analytics/react";
+
+const GA_ID = "G-411N0XG0MN";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +41,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nb" className={`${inter.variable} h-full antialiased`}>
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+        </Script>
+      </head>
       <body className="flex min-h-full flex-col bg-bone text-graphite-900">
         <script
           type="application/ld+json"
